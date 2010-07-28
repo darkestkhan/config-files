@@ -100,11 +100,11 @@ fi
 
 # private aliases
  alias ruby='ruby1.9.1'
- alias emacs='emacs22'
+ alias emacs='emacs23-nox'
  alias python='python3.1'
- alias vim='emacs'
- alias vi='emacs'
- alias exe='chmod =rwx'
+ alias vim='emacs23-nox'
+ alias vi='emacs23-nox'
+ alias exe='chmod 700'
  alias rw='chmod =rw'
  alias sapt='aptitude search'
 
