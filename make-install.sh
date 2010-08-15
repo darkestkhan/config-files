@@ -2,6 +2,7 @@
 ln -b .bashrc $HOME/.bashrc
 ln -b .profile $HOME/.profile
 ln -b .bash_aliases $HOME/.bash_aliases
+ln -b .ssh-agent $HOME/bin/.ssh-agent
 # mkdir $HOME/bin
 ln -b bin/compile.sh $HOME/bin/compile.sh
 ln -b bin/keyboard.sh $HOME/bin/keyboard.sh
