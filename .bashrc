@@ -83,7 +83,7 @@ fi
 
 # include private bin, if it exist
 if [ -d "$HOME/bin" ] ; then
-    PATH=$HOME/bin:$PATH
+    PATH="$HOME/bin:$PATH"
 fi
 
 ## ssh-agent
