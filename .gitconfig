@@ -1,0 +1,12 @@
+[user]
+	name = darkestkhan
+    	email = darketkhan@gmail.com
+
+[alias] 
+	st = status
+    	ci = commit
+    	co = checkout
+    	w = whatchanged
+
+[core]
+	editor = emacs23
