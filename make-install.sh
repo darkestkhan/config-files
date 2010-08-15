@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-rm $HOME/.bashrc
-ln -L .bashrc $HOME/.bashrc
-rm $HOME/.profile
-ln -L .profile $HOME/.profile
+ln -b .bashrc $HOME/.bashrc
+ln -b .profile $HOME/.profile
 # mkdir $HOME/bin
-ln -s bin/compile.sh $HOME/bin/compile.sh
-ln -s bin/keyboard.sh $HOME/bin/keyboard.sh
-# @cpug.sh
+ln -b bin/compile.sh $HOME/bin/compile.sh
+ln -b bin/keyboard.sh $HOME/bin/keyboard.sh
+# files that need root privileges
+ln -b root/cpug.sh $HOME/bin/cpug.sh
+ln -b root/upt.sh $HOME/bin/upt.sh
