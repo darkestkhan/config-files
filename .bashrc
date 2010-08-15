@@ -70,26 +70,9 @@ esac
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-#if [ -f ~/.bash_aliases ]; then
-#    . ~/.bash_aliases
-#fi
-
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    eval "`dircolors -b`"
-    alias ls='ls --color=auto'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
 fi
-
-# some more ls aliases
-alias ll='ls --group-directories-first -l'
-alias la='ls --group-directories-first -A'
-alias l='ls --group-directories-first -CF'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -98,18 +81,10 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-# private aliases
- alias ruby='ruby1.9.1'
- alias emacs='emacs23-nox'
- alias python='python3.1'
- alias vim='emacs23-nox'
- alias vi='emacs23-nox'
- alias exe='chmod 700'
- alias rw='chmod =rw'
- alias sapt='aptitude search'
-
-# include private bin
-PATH=$PATH:/$HOME/bin
+# include private bin, if it exist
+if [ -d "$HOME/bin" ] ; then
+    PATH=$HOME/bin:$PATH
+fi
 
 ## ssh-agent
 SSH_ENV="$HOME/.ssh/environment"
