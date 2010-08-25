@@ -5,6 +5,13 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+# needed in order to make gnat visible
+if [ -f /etc/profile ]; then
+    . /etc/profile
+fi
+
+export EDITOR='emacs-23 --no-window'
+export TERM='xterm'
 # don't put duplicate lines in the history. See bash(1) for more options
 # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
 export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
@@ -22,11 +29,6 @@ shopt -s checkwinsize
 
 # make less more friendly for non-text input files, see lesspipe(1)
 #[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color) color_prompt=yes;;
-esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
@@ -50,15 +52,6 @@ else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -86,4 +79,16 @@ if [ -f $HOME/.ssh-agent ]; then
 	dash $HOME/bin/.ssh-agent.sh
     else
 	bash $HOME/bin/.ssh-agent.sh
+    fi
+fi
+
+
+if [[ ${EUID} == 0 ]] ; then
+    PS1='\[\033[01;31m\]\h\[\033[01;34m\] \W \$\[\033[00m\] '
+else
+    PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] '
+fi
+
+if [ -f $HOME/bin/keyboard.sh ] ; then
+    . $HOME/bin/keyboard.sh
 fi

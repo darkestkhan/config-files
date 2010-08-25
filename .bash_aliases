@@ -1,7 +1,7 @@
 # handy aliases + color support 
 if [ -x /usr/bin/dircolors ]; then
     eval "`dircolors -b`"
-    alias ls='ls --color=auto'
+    alias ls='ls --group-directories-first --color=auto'
     alias dir='dir --color=auto'
     alias vdir='vdir --color=auto'
 
@@ -14,6 +14,10 @@ fi
 alias ll='ls --group-directories-first -l'
 alias la='ls --group-directories-first -A'
 alias l='ls --group-directories-first -CF'
+
+if [ -f /usr/bin/colordiff ]; then
+  alias diff='colordiff'
+fi 
 
 # private aliases
 alias ruby='ruby18'
