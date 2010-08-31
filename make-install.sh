@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env dash
 ln -b .bash_aliases $HOME/.bash_aliases
 ln -b .bashrc $HOME/.bashrc
 ln -b .profile $HOME/.profile
