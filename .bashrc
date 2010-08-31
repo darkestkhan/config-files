@@ -84,7 +84,7 @@ if [ -f $HOME/bin/keyboard.sh ] ; then
     . $HOME/bin/keyboard.sh
 fi
 
-if [ -f $HOME/.ssh-agent ]; then
+if [ -f $HOME/bin/.ssh-agent.sh ]; then
 #    if [ -f /bin/dash ]; then
 	dash $HOME/bin/.ssh-agent.sh
 #    else
