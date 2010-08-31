@@ -74,15 +74,6 @@ if [ -d $HOME/bin ]; then
     PATH=$HOME/bin:$PATH
 fi
 
-if [ -f $HOME/.ssh-agent ]; then
-    if [ -f /bin/dash ]; then
-	dash $HOME/bin/.ssh-agent.sh
-    else
-	bash $HOME/bin/.ssh-agent.sh
-    fi
-fi
-
-
 if [[ ${EUID} == 0 ]] ; then
     PS1='\[\033[1;36m\]\# \[\033[01;31m\]\h\[\033[01;34m\] \W \$\[\033[00m\] '
 else
@@ -92,3 +83,12 @@ fi
 if [ -f $HOME/bin/keyboard.sh ] ; then
     . $HOME/bin/keyboard.sh
 fi
+
+if [ -f $HOME/.ssh-agent ]; then
+#    if [ -f /bin/dash ]; then
+	dash $HOME/bin/.ssh-agent.sh
+#    else
+#	bash $HOME/bin/.ssh-agent.sh
+#    fi
+fi
+
