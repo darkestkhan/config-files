@@ -92,3 +92,11 @@ if [ -f $HOME/bin/.ssh-agent.sh ]; then
 #    fi
 fi
 
+#if [ -f /usr/bin/nm-applet ]; then
+#    gnome-keyring-daemon &
+#    nm-applet &
+#fi
+
+if [ -f $HOME/REMEMBER ]; then
+	cat <REMEMBER
+fi

@@ -17,19 +17,19 @@ alias l='ls --group-directories-first -CF'
 
 if [ -f /usr/bin/colordiff ]; then
   alias diff='colordiff'
-fi 
+fi
 
 # private aliases
 alias ruby='ruby18'
-alias emacs='emacs-23 --no-window'
-alias python='python2.6'
-alias vim='emacs-23 --no-window'
-alias vi='emacs-23 --no-window'
+alias emacs='emacs23 --no-window'
+alias python='python3.1'
+#alias vim='emacs23 --no-window'
+#alias vi='emacs23 --no-window'
 alias exe='chmod 700'
 alias rw='chmod 600'
-alias sapt='equo search'
-#alias ssapt='apt-get source'
-#alias vapt='aptitude versions'
+alias sapt='aptitude search'
+alias ssapt='apt-get source'
+alias vapt='aptitude versions'
 
 # need root privileges
-alias iapt='equo install'
+alias iapt='aptitude install'

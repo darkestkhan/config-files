@@ -9,4 +9,4 @@
     	w = whatchanged
 
 [core]
-	editor = emacs-23 --no-window
+	editor = emacs23 --no-window
