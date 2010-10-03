@@ -17,6 +17,7 @@ ln -b .fluxbox/windowmenu $HOME/.fluxbox/windowmenu
 ln -b bin/.ssh-agent.sh $HOME/bin/.ssh-agent.sh
 ln -b bin/compile.sh $HOME/bin/compile.sh
 ln -b bin/keyboard.sh $HOME/bin/keyboard.sh
+ln -b bin/icpufreq-info.sh $HOME/bin/icpufreq-info.sh
 # files that need root privileges
 ln -b root/cpug.sh $HOME/bin/cpug.sh
 ln -b root/upt.sh $HOME/bin/upt.sh

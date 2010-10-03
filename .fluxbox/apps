@@ -4,3 +4,5 @@
 [end]
 [app] (name=pcmanfm) (class=Pcmanfm)
 [end]
+[app] (name=vlc) (class=Vlc) (role=vlc-main)
+[end]
