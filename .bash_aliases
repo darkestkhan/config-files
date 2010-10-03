@@ -20,7 +20,7 @@ if [ -f /usr/bin/colordiff ]; then
 fi
 
 # private aliases
-alias ruby='ruby18'
+alias ruby='ruby1.8'
 alias emacs='emacs23 --no-window'
 alias python='python3.1'
 #alias vim='emacs23 --no-window'
