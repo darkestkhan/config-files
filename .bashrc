@@ -10,7 +10,7 @@ if [ -f /etc/profile ]; then
     . /etc/profile
 fi
 
-export EDITOR='emacs-23 --no-window'
+export EDITOR='emacs23 --no-window'
 export TERM='xterm'
 # don't put duplicate lines in the history. See bash(1) for more options
 # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
