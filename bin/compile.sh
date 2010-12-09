@@ -10,19 +10,28 @@ SSE=mssse3
 LONGDOUBLE=m128bit-long-double
 FPM='-fomit-frame-pointer -pipe -mfpmath=sse'
 
+if [ $2 = '' ]; then
+    $2 = "a.out"
+fi
+
+temp=$2
+$1=$2
+$2=${temp}
+
 case $1 in
-    *.c) gcc-4.4 -$OPT -std=$CSTD $FPM -$LONGDOUBLE -$MACHINE -$SSE -march=$CPU $1 -o $2 ;;
-    *.h) gcc-4.4 -$OPT -std=$CSTD $FPM -$LONGDOUBLE -$MACHINE -$SSE -march=$CPU $1 -o $2 ;;
-    *.cpp) gcc-4.4 -$OPT -std=$CSTD $FPM -$LONGDOUBLE -$MACHINE -$SSE -march=$CPU $1 -o $2 ;;
-    *.hpp) gcc-4.4 -$OPT -std=$CSTD $FPM -$LONGDOUBLE -$MACHINE -$SSE -march=$CPU $1 -o $2 ;;
+    *.c) gcc-4.4 -$OPT -std=$CSTD $FPM -$LONGDOUBLE -$MACHINE -$SSE -march=$CPU -o $1 $2 ;;
+    *.h) gcc-4.4 -$OPT -std=$CSTD $FPM -$LONGDOUBLE -$MACHINE -$SSE -march=$CPU -o $1 $2 ;;
+    *.cpp) gcc-4.4 -$OPT -std=$CSTD $FPM -$LONGDOUBLE -$MACHINE -$SSE -march=$CPU -o $1 $2 ;;
+    *.hpp) gcc-4.4 -$OPT -std=$CSTD $FPM -$LONGDOUBLE -$MACHINE -$SSE -march=$CPU -o $1 $2 ;;
     *.ads) gnatmake -$OPT $1 ;;
     *.adb) gnatmake -$OPT $1 ;;
-    *.hs) ghc -$OPT $1 -o $2 ;;
-    *.lhs) ghc -$OPT $1 -o $2 ;;
-    *.f90) gfortran -$OPT $1 -o $2 ;;
-    *.f77) gfortran -$OPT $1 -o $2 ;;
-    *.f95) gfortran -$OPT $1 -o $2 ;;
+    *.hs) ghc -$OPT -o $1 $2 ;;
+    *.lhs) ghc -$OPT -o $1 $2 ;;
+    *.f90) gfortran -$OPT -o $1 $2 ;;
+    *.f77) gfortran -$OPT -o $1 $2 ;;
+    *.f95) gfortran -$OPT -o $1 $2 ;;
 #    *.cl) sbcl -- not yet ... ;;
-    *.s) gas -$OPT $1 -o $2 ;;
+    *.s) gas -$OPT -o $1 $2 ;;
+    *.cs) gmcs -o $1 $2;;
     *) echo "wtf?" ;;
 esac
