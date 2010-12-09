@@ -5,11 +5,11 @@
 # You can set your favourite wallpaper here if you don't want
 # to do it from your style.
 #
-# bsetbg -f ~/pictures/wallpaper.png
+fbsetbg -f ~/pictures/3d_space_32.jpg
 #
 # This sets a black background
 
-/usr/bin/fbsetroot -solid black
+#/usr/bin/fbsetroot -solid blue
 
 # This shows the fluxbox-splash-screen
 # fbsetbg -C /usr/share/fluxbox/splash.jpg
@@ -40,6 +40,8 @@
 # wmnd &
 # wmsmixer -w &
 # idesk &
+nm-applet &
+stjerm &
 
 # And last but not least we start fluxbox.
 # Because it is the last app you have to run it with ''exec'' before it.

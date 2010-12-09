@@ -1,4 +1,12 @@
 !mouse actions added by fluxbox-update_configs
+OnTitlebar Mouse1 :MacroCmd {Focus} {Raise} {ActivateTab}
+!mouse actions added by fluxbox-update_configs
+OnTitlebar Move1 :StartMoving
+OnLeftGrip Move1 :StartResizing bottomleft
+OnRightGrip Move1 :StartResizing bottomright
+OnWindowBorder Move1 :StartMoving
+
+!mouse actions added by fluxbox-update_configs
 OnTitlebar Mouse2 :StartTabbing
 
 !mouse actions added by fluxbox-update_configs
@@ -35,3 +43,6 @@ Mod1 F12 :Workspace 12
 F2 :ExecCommand fbrun 
 !ESC + ESC + ESC :AbortKeychain
 !Control X + Control C :KillWindow
+
+
+

@@ -6,3 +6,8 @@
 [end]
 [app] (name=vlc) (class=Vlc) (role=vlc-main)
 [end]
+[app] (name=Navigator) (class=Iceweasel) (role=browser)
+  [Position]	(UPPERLEFT)	{0 0}
+[end]
+[app] (name=kdbg) (class=Kdbg) (role=kdbg_main)
+[end]
