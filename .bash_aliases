@@ -20,9 +20,11 @@ if [ -f /usr/bin/colordiff ]; then
 fi
 
 # private aliases
-alias ruby='ruby1.8'
+alias gcc='gcc-4.5 -std=c99'
+alias gfortran='gfortran-4.5 -std=f95'
+alias ruby='ruby1.9.1'
 alias emacs='emacs23 --no-window'
-alias python='python3.1'
+alias python='python3.2'
 #alias vim='emacs23 --no-window'
 #alias vi='emacs23 --no-window'
 alias exe='chmod 700'
