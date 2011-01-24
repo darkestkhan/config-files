@@ -16,6 +16,8 @@ ln -b .fluxbox/overlay $HOME/.fluxbox/overlay
 ln -b .fluxbox/slitlist $HOME/.fluxbox/slitlist
 ln -b .fluxbox/startup $HOME/.fluxbox/startup
 ln -b .fluxbox/windowmenu $HOME/.fluxbox/windowmenu
+# mkdir $HOME/.vim.d
+ln -b .vimrc $HOME/.vimrc
 # mkdir $HOME/bin
 ln -b bin/.ssh-agent.sh $HOME/bin/.ssh-agent.sh
 ln -b bin/compile.sh $HOME/bin/compile.sh
