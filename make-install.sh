@@ -4,6 +4,9 @@ ln -b .bashrc $HOME/.bashrc
 ln -b .profile $HOME/.profile
 ln -b .Xmodmap $HOME/.Xmodmap
 # mkdir $HOME/.fluxbox
+# mkdir $HOME/.fluxbox/styles
+# mkdir $HOME/.fluxbox/styles/darkness
+ln -b .fluxbox/styles/darkness/theme.cfg $HOME/.fluxbox/styles/darkness/theme.cfg
 ln -b .fluxbox/apps $HOME/.fluxbox/apps
 ln -b .fluxbox/init $HOME/.fluxbox/init
 ln -b .fluxbox/keys $HOME/.fluxbox/keys
