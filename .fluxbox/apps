@@ -11,3 +11,6 @@
 [end]
 [app] (name=kdbg) (class=Kdbg) (role=kdbg_main)
 [end]
+[app] (name=gvim) (class=Gvim) (role=vim-3617-443944477-1295887013)
+  [Position]	(UPPERLEFT)	{-1 -1}
+[end]

@@ -41,7 +41,7 @@ fbsetbg -f ~/pictures/3d_space_32.jpg
 # wmsmixer -w &
 # idesk &
 nm-applet &
-stjerm &
+stjerm -bgimg /home/darkestkhan/pictures/3d_space_32.jpg &
 
 # And last but not least we start fluxbox.
 # Because it is the last app you have to run it with ''exec'' before it.
