@@ -2,15 +2,12 @@
   [Position]	(CENTER)	{40 -30}
   [Layer]	{2}
 [end]
-[app] (name=pcmanfm) (class=Pcmanfm)
-[end]
-[app] (name=vlc) (class=Vlc) (role=vlc-main)
-[end]
-[app] (name=Navigator) (class=Iceweasel) (role=browser)
-  [Position]	(UPPERLEFT)	{0 0}
-[end]
-[app] (name=kdbg) (class=Kdbg) (role=kdbg_main)
-[end]
-[app] (name=gvim) (class=Gvim) (role=vim-3617-443944477-1295887013)
-  [Position]	(UPPERLEFT)	{-1 -1}
+[group] (workspace)
+  [app] (name=pcmanfm) (class=Pcmanfm)
+  [app] (name=vlc) (class=Vlc) (role=vlc-main)
+  [app] (name=Navigator) (class=Iceweasel) (role=browser)
+    [Position]	(UPPERLEFT)	{0 0}
+  [app] (name=kdbg) (class=Kdbg) (role=kdbg_main)
+  [app] (name=gvim) (class=Gvim) (role=vim-3617-443944477-1295887013)
+  [app] (name=evince) (class=evince)
 [end]

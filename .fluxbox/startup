@@ -31,8 +31,6 @@ fbsetbg -f ~/pictures/3d_space_32.jpg
 # Change your keymap:
 # xmodmap ~/.Xmodmap
 
-
-
 # Applications you want to run with fluxbox.
 # MAKE SURE THAT APPS THAT KEEP RUNNING HAVE AN ''&'' AT THE END.
 #
@@ -41,12 +39,15 @@ fbsetbg -f ~/pictures/3d_space_32.jpg
 # wmsmixer -w &
 # idesk &
 nm-applet &
-stjerm -bgimg /home/darkestkhan/pictures/3d_space_32.jpg &
-
+stjerm -tp right -tl \$ -p top -w 1280 -h 720 -bgimg /home/darkestkhan/pictures/3d_space_32.jpg &
+xterm $HOME/bin/.ssh-agent.sh &
+ibus-daemon -d &
+xscreensaver &
+xterm $HOME/bin/vlc_flood_preventer.sh &
 # And last but not least we start fluxbox.
 # Because it is the last app you have to run it with ''exec'' before it.
-
 exec /usr/bin/fluxbox
 # or if you want to keep a log:
 # exec /usr/bin/fluxbox -log ~/.fluxbox/log
 fbsetbg -l
+
