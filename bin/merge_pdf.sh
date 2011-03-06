@@ -2,6 +2,8 @@
 #-- This script is merging given pdf files in to one pdf file in given order
 #-- Depends on ghostscript
 
+#-- there are possible problems with filenames containing space(-s)
+
 SPACE=' '
 ARGS=
 OUTPUT=$1

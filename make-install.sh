@@ -24,6 +24,7 @@ ln -b bin/compile.sh $HOME/bin/compile.sh
 ln -b bin/keyboard.sh $HOME/bin/keyboard.sh
 ln -b bin/icpufreq-info.sh $HOME/bin/icpufreq-info.sh
 ln -b bin/vlc_flood_preventer.sh $HOME/bin/vlc_flood_preventer.sh
+ln -b bin/merge_pdf.sh $HOME/bin/merge_pdf.sh
 # files that need root privileges
-ln -b root/cpug.sh $HOME/bin/cpug.sh
-ln -b root/upt.sh $HOME/bin/upt.sh
+ln -b bin/cpug.sh $HOME/bin/cpug.sh
+ln -b bin/upt.sh $HOME/bin/upt.sh

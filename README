@@ -7,9 +7,12 @@ manually copy files.
 
 Scripts:
   bin/vlc_flood_preventer.sh 
-I have found that under heavy loads vlc has really hateful tendency to
-literally flood memory. Nothing nicer than script killing it before it
-kills system. :)
+* I have found that under heavy loads vlc has really hateful tendency to
+* literally flood memory. Nothing nicer than script killing it before it
+* kills system. :)
+
+  bin/merge_pdf.sh
+* merge pdf files in order; first argument is output file
 
 
                   copyright (C) 2010, darkestkhan,
