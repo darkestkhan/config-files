@@ -16,7 +16,7 @@ if [ -f /etc/profile ]; then
     . /etc/profile
 fi
 
-export EDITOR='emacs23 --no-window'
+export EDITOR='vim'
 export TERM='xterm'
 # don't put duplicate lines in the history. See bash(1) for more options
 # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
@@ -34,12 +34,12 @@ shopt -s histappend
 shopt -s checkwinsize
 
 # make less more friendly for non-text input files, see lesspipe(1)
-#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -90,10 +90,17 @@ if [ -f $HOME/bin/keyboard.sh ] ; then
     . $HOME/bin/keyboard.sh
 fi
 
-if [ -f $HOME/bin/.ssh-agent.sh ]; then
-	dash $HOME/bin/.ssh-agent.sh
+if [ -f $HOME/REMEMBER ] ; then
+  cat $HOME/REMEMBER
 fi
 
-if [ -f $HOME/REMEMBER ]; then
-	cat <REMEMBER
-fi
+#if [ -f $HOME/bin/.ssh-agent.sh ]; then
+#	  . $HOME/bin/.ssh-agent.sh
+#fi
+
+DEBEMAIL=darkestkhan@gmail.com
+DEBFULLNAME="darkest khan"
+export DEBEMAIL DEBFULLNAME 
+
+# enable protection of system from myself...
+ulimit -u 1024
