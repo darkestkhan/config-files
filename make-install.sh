@@ -1,8 +1,19 @@
 #!/usr/bin/env dash
+# make install script more readable
+# make it not to hard link onto existing files
 ln -b .bash_aliases $HOME/.bash_aliases
 ln -b .bashrc $HOME/.bashrc
 ln -b .profile $HOME/.profile
 ln -b .Xmodmap $HOME/.Xmodmap
+# mkdir $HOME/.vim.d
+ln -b .vimrc $HOME/.vimrc
+if [ -d $HOME/.vim.d ]
+then
+  ln -b .vim.d/ada_dict.gpr $HOME/.vim.d/ada_dict.gpr
+else
+  mkdir $HOME/.vim.d
+  ln -b .vim.d/ada_dict.gpr $HOME/.vim.d/ada_dict.gpr
+fi
 # mkdir $HOME/.fluxbox
 # mkdir $HOME/.fluxbox/styles
 # mkdir $HOME/.fluxbox/styles/darkness
@@ -16,8 +27,7 @@ ln -b .fluxbox/overlay $HOME/.fluxbox/overlay
 ln -b .fluxbox/slitlist $HOME/.fluxbox/slitlist
 ln -b .fluxbox/startup $HOME/.fluxbox/startup
 ln -b .fluxbox/windowmenu $HOME/.fluxbox/windowmenu
-# mkdir $HOME/.vim.d
-ln -b .vimrc $HOME/.vimrc
+# install scripts
 # mkdir $HOME/bin
 ln -b bin/.ssh-agent.sh $HOME/bin/.ssh-agent.sh
 ln -b bin/compile.sh $HOME/bin/compile.sh
