@@ -6,16 +6,16 @@ And one more thing - make-install.sh was made because I was too lazy to
 manually copy files.
 
 Scripts:
-  bin/vlc_flood_preventer.sh 
-* I have found that under heavy loads vlc has really hateful tendency to
-* literally flood memory. Nothing nicer than script killing it before it
-* kills system. :)
+* bin/vlc_flood_preventer.sh 
+  I have found that under heavy loads vlc has really hateful tendency to
+  literally flood memory. Nothing nicer than script killing it before it
+  kills system. :)
 
-  bin/merge_pdf.sh
-* merge pdf files in order; first argument is output file
+* bin/merge_pdf.sh
+  merge pdf files in order; first argument is output file
 
 
-                  copyright (C) 2010, darkestkhan,
+                  copyright (C) 2010 - 2011, darkestkhan,
 
     These files are free software: you can redistribute them and/or modify
     them under the terms of the GNU General Public License as published by
