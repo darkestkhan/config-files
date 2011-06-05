@@ -20,7 +20,8 @@ if [ -f /usr/bin/colordiff ]; then
 fi
 
 # private aliases
-alias gcc='gcc-4.5 -std=c99'
+alias gcc='gcc-4.6 -std=c99 -Wall'
+alias g++='g++-4.6 -std=c++0x -Wall'
 alias gfortran='gfortran-4.5 -std=f95'
 alias ruby='ruby1.9.1 2>>${HOME}/.error_log/ruby'
 alias emacs='emacs23 --no-window'
