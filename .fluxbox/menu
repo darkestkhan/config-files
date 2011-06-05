@@ -15,60 +15,62 @@
 #   you can change the menu name in ~/.fluxbox/init to:
 #     session.menuFile: ~/.fluxbox/my-menu
 [begin] (Fluxbox)
-[encoding] {UTF-8}
-      [exec] (xterm) {xterm} 
-      [exec] (firefox) {firefox} 
-      [exec]   (Run) {fbrun } 
-[submenu] (Terminals)
+  [encoding] {UTF-8}
+    [exec] (xterm) {xterm} 
+    [exec] (firefox) {firefox} 
+    [exec]   (Run) {fbrun } 
+
+    [submenu] (Terminals)
       [exec]   (xterm) {xterm} 
-[end]
-[submenu] (Net)
-[submenu] (Browsers)
-      [exec]   (firefox) {firefox} 
-      [exec]   (midori)  {midori}
-[end]
-[submenu] (Mail) 
-[end]
-[end]
-[submenu] (Editors)
+    [end]
+
+    [submenu] (Net)
+      [submenu] (Browsers)
+        [exec]   (firefox) {firefox} 
+        [exec]   (midori)  {midori}
+      [end]
+    [end]
+
+    [submenu] (Editors)
       [exec]  (gvim) {gvim} 
-[end]
-[submenu] (File utils)
+    [end]
+
+    [submenu] (File utils)
       [exec] (pcmanfm) {pcmanfm} 
-[end]
-[submenu] (Multimedia)
-[submenu] (Audio)
+    [end]
+
+    [submenu] (Multimedia)
       [exec]   (vlc) {vlc} 
-[end]
-[submenu] (X-utils)
-      [exec] (Reload .Xdefaults) {xrdb -load $HOME/.Xdefaults} 
-[end]
-[end]
-[submenu] (System Tools)
-      [exec]   (htop) {xterm -e htop} 
-[end]
-[submenu] (Fluxbox menu)
-      [config] (Configure) 
-[submenu] (Styles)
-      [include] (/usr/share/fluxbox/menu.d/styles/) 
-[end]
-      [workspaces] (Workspace List) 
-[submenu] (Tools)
-      [exec] (Window name) {xprop WM_CLASS|cut -d \" -f 2|xmessage -file - -center} 
-      [exec] (Screenshot - JPG) {import screenshot.jpg && display -resize 50% screenshot.jpg} 
-      [exec] (Screenshot - PNG) {import screenshot.png && display -resize 50% screenshot.png} 
-      [exec] (Run) {fbrun } 
-      [exec] (Regen Menu) {fluxbox-generate_menu -o /etc/skel/.fluxbox/menu} 
-[end]
-[submenu] (Window Managers)
-      [restart] (fluxbox) {fluxbox} 
-[end]
+    [end]
+
+    [submenu] (STANDARDS)
+      [exec]  (ARM) {evince ~/standards.d/ARM.pdf}
+      [exec]  (C#2.0) {evince ~/standards.d/c#-standard.pdf}
+      [exec]  (F90) {evince ~/standards.d/fortran90iso.pdf}
+    [end]
+
+    [submenu] (System Tools)
+      [exec]   (htop) {xterm -e htop}
+    [end]
+
+    [submenu] (Fluxbox menu)
+      [config] (Configure)
+
+      [submenu] (Tools)
+        [exec] (Window name) {xprop WM_CLASS|cut -d \" -f 2|xmessage -file - -center} 
+        [exec] (Screenshot - JPG) {import screenshot.jpg && display -resize 50% screenshot.jpg} 
+        [exec] (Screenshot - PNG) {import screenshot.png && display -resize 50% screenshot.png} 
+        [exec] (Run) {fbrun } 
+        [exec] (Regen Menu) {fluxbox-generate_menu -o /etc/skel/.fluxbox/menu} 
+      [end]
+
       [commanddialog] (Fluxbox Command) 
       [reconfig] (Reload config) 
       [restart] (Restart) 
       [exec] (About) {(fluxbox -v; fluxbox -info | sed 1d) | xmessage -file - -center} 
       [separator] 
       [exit] (Exit) 
-[end]
-[endencoding]
+    [end]
+    [workspaces] (Workspace List) 
+  [endencoding]
 [end]

@@ -2,12 +2,27 @@
   [Position]	(CENTER)	{40 -30}
   [Layer]	{2}
 [end]
-[group] (workspace)
-  [app] (name=pcmanfm) (class=Pcmanfm)
-  [app] (name=vlc) (class=Vlc) (role=vlc-main)
-  [app] (name=Navigator) (class=Iceweasel) (role=browser)
-    [Position]	(UPPERLEFT)	{0 0}
-  [app] (name=kdbg) (class=Kdbg) (role=kdbg_main)
-  [app] (name=gvim) (class=Gvim) (role=vim-3617-443944477-1295887013)
-  [app] (name=evince) (class=evince)
+[group]  (workspace=[current])
+ [app] (name=pcmanfm) (class=Pcmanfm)
+ [app] (name=vlc) (class=Vlc) (role=vlc-main)
+ [app] (name=Navigator) (class=Iceweasel) (role=browser)
+  [Position]	(UPPERLEFT)	{0 0}
+  [Fullscreen]	{no}
+[end]
+[app] (name=dia) (class=Dia) (role=toolbox_window)
+  [Workspace]	{1}
+  [Position]	(UPPERLEFT)	{0 0}
+  [Close]	{yes}
+[end]
+[app] (name=dia) (class=Dia) (role=diagram_window)
+  [Workspace]	{1}
+  [Position]	(UPPERLEFT)	{225 0}
+  [Close]	{yes}
+[end]
+[app] (name=gvim) (class=Gvim) (role=vim-10551-4123687037-1301261301)
+  [Dimensions]	{1276 689}
+  [Position]	(UPPERLEFT)	{-7 31}
+[end]
+[app] (name=gvim) (class=Gvim) (role=vim-10104-2919140390-1306880718)
+  [Position]	(UPPERLEFT)	{0 0}
 [end]

@@ -38,12 +38,15 @@ fbsetbg -f ~/pictures/3d_space_32.jpg
 # wmnd &
 # wmsmixer -w &
 # idesk &
-nm-applet &
-stjerm -tp right -tl \$ -p top -w 1280 -h 720 -bgimg /home/darkestkhan/pictures/3d_space_32.jpg &
-xterm $HOME/bin/.ssh-agent.sh &
+xrandr -s 0 &
+# nm-applet &
+#-- commented out to see how pidgin will behave after reboot
+stjerm -tp right -tl \$ -p top -w 1280 -h 720 -bg 000000 -fg 009C00 &
 ibus-daemon -d &
 xscreensaver &
-xterm $HOME/bin/vlc_flood_preventer.sh &
+bitcoind &
+# may be not needed, also needs tuning to work better
+# $HOME/bin/vlc_flood_preventer.sh &
 # And last but not least we start fluxbox.
 # Because it is the last app you have to run it with ''exec'' before it.
 exec /usr/bin/fluxbox
