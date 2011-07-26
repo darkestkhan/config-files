@@ -38,3 +38,4 @@ ln -b bin/merge_pdf.sh $HOME/bin/merge_pdf.sh
 # files that need root privileges
 ln -b bin/cpug.sh $HOME/bin/cpug.sh
 ln -b bin/upt.sh $HOME/bin/upt.sh
+ln -b bin/set_iptables.sh $HOME/bin/set_iptables.sh
