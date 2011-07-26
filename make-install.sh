@@ -36,6 +36,7 @@ ln -b bin/icpufreq-info.sh $HOME/bin/icpufreq-info.sh
 ln -b bin/vlc_flood_preventer.sh $HOME/bin/vlc_flood_preventer.sh
 ln -b bin/merge_pdf.sh $HOME/bin/merge_pdf.sh
 ln -b bin/testnet.sh $HOME/bin/testnet.sh
+ln -b bin/translate.sh $HOME/bin/translate.sh
 # files that need root privileges
 ln -b bin/cpug.sh $HOME/bin/cpug.sh
 ln -b bin/upt.sh $HOME/bin/upt.sh
