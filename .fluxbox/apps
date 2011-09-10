@@ -26,3 +26,10 @@
 [app] (name=gvim) (class=Gvim) (role=vim-10104-2919140390-1306880718)
   [Position]	(UPPERLEFT)	{0 0}
 [end]
+[app] (name=gvim) (class=Gvim) (role=vim-27144-4248742551-1315137082)
+  [Position]	(UPPERLEFT)	{-1 -4}
+[end]
+[app] (name=gvim) (class=Gvim) (role=vim-27168-2084422366-1315137123)
+  [Dimensions]	{1044 575}
+  [Position]	(UPPERLEFT)	{118 69}
+[end]

@@ -5,7 +5,7 @@
 # You can set your favourite wallpaper here if you don't want
 # to do it from your style.
 #
-fbsetbg -f ~/pictures/3d_space_32.jpg
+fbsetbg -c -r ~/pictures
 #
 # This sets a black background
 
@@ -39,7 +39,7 @@ fbsetbg -f ~/pictures/3d_space_32.jpg
 # wmsmixer -w &
 # idesk &
 xrandr -s 0 &
-# nm-applet &
+nm-applet &
 #-- commented out to see how pidgin will behave after reboot
 stjerm -tp right -tl \$ -p top -w 1280 -h 720 -bg 000000 -fg 009C00 &
 ibus-daemon -d &
