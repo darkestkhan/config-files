@@ -7,13 +7,13 @@ ln -b .profile $HOME/.profile
 ln -b .Xmodmap $HOME/.Xmodmap
 # mkdir $HOME/.vim.d
 ln -b .vimrc $HOME/.vimrc
-if [ -d $HOME/.vim.d ]
-then
-  ln -b .vim.d/ada_dict.gpr $HOME/.vim.d/ada_dict.gpr
-else
-  mkdir $HOME/.vim.d
-  ln -b .vim.d/ada_dict.gpr $HOME/.vim.d/ada_dict.gpr
-fi
+#if [ -d $HOME/.vim.d ]
+#then
+#  ln -b .vim.d/ada_dict.gpr $HOME/.vim.d/ada_dict.gpr
+#else
+#  mkdir $HOME/.vim.d
+#  ln -b .vim.d/ada_dict.gpr $HOME/.vim.d/ada_dict.gpr
+#fi
 # mkdir $HOME/.fluxbox
 # mkdir $HOME/.fluxbox/styles
 # mkdir $HOME/.fluxbox/styles/darkness
