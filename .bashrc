@@ -93,7 +93,7 @@ fi
 #fi
 
 DEBEMAIL=darkestkhan@gmail.com
-DEBFULLNAME="darkest khan"
+DEBFULLNAME="darkestkhan"
 export DEBEMAIL DEBFULLNAME 
 
 # enable protection of system from myself...
