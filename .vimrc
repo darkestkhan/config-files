@@ -9,9 +9,17 @@ set gfw=monospace
 set sh=/bin/bash
 
 syntax on
-colorscheme elflord
 
 imap <c-space> <c-n>
 
-set runtimepath=~/.vim.d,~/.vim,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vim73,/usr/share/vim/vimfiles/after,/var/lib/vim/addons/after,~/.vim/after
+set runtimepath=~/.vim.d,/usr/share/vim/vim73
+if has ("gui_running")
+  colorscheme pablo
+en
 
+set cursorline
+highlight CursorLine guibg=#00004C
+
+autocmd BufNewFile * silent! 0r ~/.vim.d/templates/%:e.tpl
+nnoremap <c-j> /<+.\{-1,}+><cr>c/+>/e<cr>
+inoremap <c-j> <ESC>/<+.\{-1,}+><cr>c/+>/e<cr>
