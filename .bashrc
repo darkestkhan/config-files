@@ -5,12 +5,16 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-# needed in order to make gnat visible
-#if [ -f /etc/profile ]; then
-#    . /etc/profile
-#fi
-# This is not valid in case of Debian (which I'm using) - it is visible
-# without it, to not mention that such file doesn't exist by default in Debian
+function Import_System_Profile ()
+{
+  # Needed in order to make GNAT visible on some systems
+  if [ -f /etc/profile ]; then
+    . /etc/profile
+  fi
+  # This is not valid in case of Debian (which I'm using) - 
+  # it is visible without it
+}
+
 
 function Set_History ()
 {
@@ -74,6 +78,7 @@ function Export_Variables ()
   export DEBFULLNAME="darkestkhan"
 }
 
+Import_System_Profile
 Set_History
 Enable_Colors
 Export_Variables
