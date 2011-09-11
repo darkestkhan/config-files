@@ -15,7 +15,7 @@
 export EDITOR='vim'
 export TERM='xterm'
 
-function set_history ()
+function Set_History ()
 {
   # don't put duplicate lines in the history. See bash(1) for more options
   # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
@@ -36,7 +36,7 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-function enable_colors ()
+function Enable_Colors ()
 {
   # uncomment for a colored prompt, if the terminal has the capability; turned
   # off by default to not distract the user: the focus in a terminal window
@@ -69,8 +69,8 @@ function enable_colors ()
   fi
 }
 
-set_history
-enable_colors
+Set_History
+Enable_Colors
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
