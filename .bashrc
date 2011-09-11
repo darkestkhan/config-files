@@ -95,12 +95,19 @@ function Include_Home_Bin ()
   fi
 }
 
+function Protect_From_Myself ()
+{
+  # enable protection of system from myself...
+  ulimit -u 1024
+}
+
 Import_System_Profile
 Set_History
 Enable_Colors
 Export_Variables
 Enable_Bash_Completion
 Include_Home_Bin
+Protect_From_Myself
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -118,6 +125,3 @@ fi
 #if [ -f $HOME/bin/.ssh-agent.sh ]; then
 #	  . $HOME/bin/.ssh-agent.sh
 #fi
-
-# enable protection of system from myself...
-ulimit -u 1024
