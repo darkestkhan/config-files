@@ -95,6 +95,14 @@ function Include_Home_Bin ()
   fi
 }
 
+function Import_Aliases ()
+{
+  # Alias definitions.
+  if [ -f ~/.bash.d/bash_aliases ]; then
+    . ~/.bash.d/bash_aliases
+  fi
+}
+
 function Protect_From_Myself ()
 {
   # enable protection of system from myself...
@@ -108,15 +116,7 @@ Export_Variables
 Enable_Bash_Completion
 Include_Home_Bin
 Protect_From_Myself
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
+Import_Aliases
 
 if [ -f $HOME/bin/keyboard.sh ] ; then
     . $HOME/bin/keyboard.sh
