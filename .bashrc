@@ -15,7 +15,6 @@ function Import_System_Profile ()
   # it is visible without it
 }
 
-
 function Set_History ()
 {
   # don't put duplicate lines in the history. See bash(1) for more options
@@ -88,11 +87,20 @@ function Enable_Bash_Completion ()
   fi
 }
 
+function Include_Home_Bin ()
+{
+  # include private bin, if it exist
+  if [ -d $HOME/bin ]; then
+    PATH=$PATH:$HOME/bin
+  fi
+}
+
 Import_System_Profile
 Set_History
 Enable_Colors
 Export_Variables
 Enable_Bash_Completion
+Include_Home_Bin
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -101,11 +109,6 @@ Enable_Bash_Completion
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
-fi
-
-# include private bin, if it exist
-if [ -d $HOME/bin ]; then
-    PATH=$HOME/bin:$PATH
 fi
 
 if [ -f $HOME/bin/keyboard.sh ] ; then
