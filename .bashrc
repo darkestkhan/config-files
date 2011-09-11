@@ -126,7 +126,3 @@ Include_Home_Bin
 Protect_From_Myself
 Import_Aliases
 Enable_Compose_Key
-
-#if [ -f $HOME/bin/.ssh-agent.sh ]; then
-#	  . $HOME/bin/.ssh-agent.sh
-#fi
