@@ -78,10 +78,21 @@ function Export_Variables ()
   export DEBFULLNAME="darkestkhan"
 }
 
+function Enable_Bash_Completion ()
+{
+  # enable programmable completion features (you don't need to enable
+  # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+  # sources /etc/bash.bashrc).
+  if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+}
+
 Import_System_Profile
 Set_History
 Enable_Colors
 Export_Variables
+Enable_Bash_Completion
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -90,13 +101,6 @@ Export_Variables
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
-fi
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
 fi
 
 # include private bin, if it exist
