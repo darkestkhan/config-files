@@ -109,6 +109,14 @@ function Protect_From_Myself ()
   ulimit -u 1024
 }
 
+function Enable_Compose_Key ()
+{
+  # works only with X running
+  if [ -f $HOME/bin/keyboard.sh ] ; then
+    . $HOME/bin/keyboard.sh
+  fi
+}
+
 Import_System_Profile
 Set_History
 Enable_Colors
@@ -117,10 +125,7 @@ Enable_Bash_Completion
 Include_Home_Bin
 Protect_From_Myself
 Import_Aliases
-
-if [ -f $HOME/bin/keyboard.sh ] ; then
-    . $HOME/bin/keyboard.sh
-fi
+Enable_Compose_Key
 
 #if [ -f $HOME/bin/.ssh-agent.sh ]; then
 #	  . $HOME/bin/.ssh-agent.sh
