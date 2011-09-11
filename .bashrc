@@ -29,12 +29,18 @@ function Set_History ()
   # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 }
 
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-shopt -s checkwinsize
+function Check_Win_Size ()
+{
+  # check the window size after each command and, if necessary,
+  # update the values of LINES and COLUMNS.
+  shopt -s checkwinsize
+}
 
-# make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+function Make_Less_Friendly ()
+{
+  # make less more friendly for non-text input files, see lesspipe(1)
+  [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+}
 
 function Enable_Colors ()
 {
@@ -125,4 +131,6 @@ Enable_Bash_Completion
 Include_Home_Bin
 Protect_From_Myself
 Import_Aliases
+Check_Win_Size
+Make_Less_Friendly
 Enable_Compose_Key
