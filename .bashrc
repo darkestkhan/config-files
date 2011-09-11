@@ -86,10 +86,6 @@ if [ -f $HOME/bin/keyboard.sh ] ; then
     . $HOME/bin/keyboard.sh
 fi
 
-if [ -f $HOME/REMEMBER ] ; then
-  cat $HOME/REMEMBER
-fi
-
 #if [ -f $HOME/bin/.ssh-agent.sh ]; then
 #	  . $HOME/bin/.ssh-agent.sh
 #fi
