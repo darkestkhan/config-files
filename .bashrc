@@ -12,9 +12,6 @@
 # This is not valid in case of Debian (which I'm using) - it is visible
 # without it, to not mention that such file doesn't exist by default in Debian
 
-export EDITOR='vim'
-export TERM='xterm'
-
 function Set_History ()
 {
   # don't put duplicate lines in the history. See bash(1) for more options
@@ -69,8 +66,17 @@ function Enable_Colors ()
   fi
 }
 
+function Export_Variables ()
+{
+  export EDITOR='vim'
+  export TERM='xterm'
+  export DEBEMAIL=darkestkhan@gmail.com
+  export DEBFULLNAME="darkestkhan"
+}
+
 Set_History
 Enable_Colors
+Export_Variables
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -100,10 +106,6 @@ fi
 #if [ -f $HOME/bin/.ssh-agent.sh ]; then
 #	  . $HOME/bin/.ssh-agent.sh
 #fi
-
-DEBEMAIL=darkestkhan@gmail.com
-DEBFULLNAME="darkestkhan"
-export DEBEMAIL DEBFULLNAME 
 
 # enable protection of system from myself...
 ulimit -u 1024
