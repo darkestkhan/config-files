@@ -43,7 +43,7 @@ nm-applet &
 #-- commented out to see how pidgin will behave after reboot
 stjerm -tp right -tl \$ -p top -w 1280 -h 720 -bg 000000 -fg 009C00 &
 ibus-daemon -d &
-xscreensaver &
+# xscreensaver &
 bitcoind &
 # may be not needed, also needs tuning to work better
 # $HOME/bin/vlc_flood_preventer.sh &
