@@ -133,4 +133,4 @@ Protect_From_Myself
 Import_Aliases
 Check_Win_Size
 Make_Less_Friendly
-Enable_Compose_Key
+#Enable_Compose_Key
