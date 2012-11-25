@@ -82,6 +82,11 @@ function Export_Variables ()
   export DEBEMAIL=darkestkhan@gmail.com
   export DEBFULLNAME="darkestkhan"
   export GPR_PROJECT_PATH=${GPR_PROJECT_PATH}:${HOME}/repo/vt100/
+
+  export XDG_DATA_HOME=${HOME}/.local/share
+  export XDG_CONFIG_HOME=${HOME}/.config
+  export XDG_CACHE_HOME=${HOME}/.cache
+  export XDG_RUNTIME_DIR=${HOME}/.runtime
 }
 
 function Enable_Bash_Completion ()
@@ -105,8 +110,8 @@ function Include_Home_Bin ()
 function Import_Aliases ()
 {
   # Alias definitions.
-  if [ -f ~/.bash.d/bash_aliases ]; then
-    . ~/.bash.d/bash_aliases
+  if [ -f ${XDG_CONFIG_HOME}/bash/bash_aliases ]; then
+    . ${XDG_CONFIG_HOME}/bash/bash_aliases
   fi
 }
 
