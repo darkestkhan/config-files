@@ -40,15 +40,11 @@
 # idesk &
 xrandr -s 0 &
 nm-applet &
-bitcoind &
 #-- commented out to see how pidgin will behave after reboot
 stjerm -tp right -tl \$ -p top -w 1280 -h 720 -bg 000000 -fg 009C00 &
 ibus-daemon -d &
-# xscreensaver &
 ./bin/keyboard.sh &
 ./bin/slideshow_wallpaper.sh &
-# may be not needed, also needs tuning to work better
-# $HOME/bin/vlc_flood_preventer.sh &
 # And last but not least we start fluxbox.
 # Because it is the last app you have to run it with ''exec'' before it.
 exec /usr/bin/fluxbox

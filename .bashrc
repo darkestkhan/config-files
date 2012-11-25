@@ -81,6 +81,7 @@ function Export_Variables ()
   export TERM='xterm'
   export DEBEMAIL=darkestkhan@gmail.com
   export DEBFULLNAME="darkestkhan"
+  export GPR_PROJECT_PATH=${GPR_PROJECT_PATH}:${HOME}/repo/vt100/
 }
 
 function Enable_Bash_Completion ()
@@ -133,4 +134,4 @@ Protect_From_Myself
 Import_Aliases
 Check_Win_Size
 Make_Less_Friendly
-#Enable_Compose_Key
+#Enable_Compose_Key # it is run in fluxbox startup sequence
