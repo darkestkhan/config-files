@@ -81,7 +81,7 @@ function Export_Variables ()
   export TERM='xterm'
   export DEBEMAIL=darkestkhan@gmail.com
   export DEBFULLNAME="darkestkhan"
-  export GPR_PROJECT_PATH=${GPR_PROJECT_PATH}:${HOME}/repo/vt100/
+  export GPR_PROJECT_PATH=${GPR_PROJECT_PATH}:${HOME}/repo/vt100/:${HOME}/repo/lumen
 
   export XDG_DATA_HOME=${HOME}/.local/share
   export XDG_CONFIG_HOME=${HOME}/.config
