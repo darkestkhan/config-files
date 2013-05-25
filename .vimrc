@@ -36,8 +36,8 @@ inoremap <c-j> <ESC>/<+.\{-1,}+><cr>c/+>/e<cr>
 
 set hls
 
-au BufWinLeave * silent mkview
-au BufWinEnter * silent loadview
+au BufWinLeave *.* silent mkview
+au BufWinEnter *.* silent loadview
 
 command SetGLSLFileType call SetGLSLFileType()
 function SetGLSLFileType()
