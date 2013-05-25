@@ -13,13 +13,15 @@ project <+Project_Name+> is
   for Library_Kind use "dynamic";
   for Library_Version use Library_Name & ".so." & Version;
 
-
   package Compiler is
     CPU   := ("-m64", "-mssse3", "-march=native", "-fPIC");
     OPT   := ("-O3", "-fomit-frame-pointer");
     WARN  := ("-Wall");
 
-    Ada_Switches := ("-gnat05", "-gnata", "-gnatE", "-gnato", "-fstack-check");
+    Ada_Switches :=
+      ( "-gnat05", "-gnata", "-gnatE", "-gnato", "-fstack-check", "-gnatW8",
+        "-gnateE", "-gnatU", "-gnatf", "-gnatj80"
+      );
     for Default_Switches ("Ada") use Ada_Switches & CPU & OPT & WARN;
 
     C_Switches := ("-O3", "-C99", "-fstack-check");
