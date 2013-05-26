@@ -1,15 +1,8 @@
-Those are config files and scripts that I'm (quite extensively) using. 
-Including installation script if someone would like to use them 
-(lookout - it is removing existing config files).
- I hope they will be of some for you. 
-And one more thing - make-install.sh was made because I was too lazy to
-manually copy files.
+These are config files and scripts that I'm (quite extensively) using. 
 
-* bin/merge_pdf.sh
-  merge pdf files in order; first argument is output file
+TODO: Move every possible configuration file into its place in $XDG_CONFIG_HOME
 
-
-                  copyright (C) 2010 - 2012, darkestkhan,
+                  copyright (C) 2010 - 2013, darkestkhan,
 
     These files are free software: you can redistribute them and/or modify
     them under the terms of the GNU General Public License as published by
