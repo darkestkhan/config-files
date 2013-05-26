@@ -15,12 +15,12 @@ syntax on
 imap <c-space> <c-n>
 
 set runtimepath=~/.vim.d,/usr/share/vim/vim73,~/.vim.d/syntax
-"if has ("gui_running")
-"  colorscheme torte
-"en
+if has ("gui_running")
+  colorscheme darkblue
+  set cursorline
+  highlight CursorLine guibg=#003F3F
+en
 
-set cursorline
-highlight CursorLine guibg=#FFCFFF
 set numberwidth=4
 
 if exists ('+colorcolumn')
@@ -31,6 +31,8 @@ else
 endif
 
 autocmd BufNewFile * silent! 0r ~/.vim.d/templates/%:e.tpl
+autocmd BufNewFile make.sh silent! 0r ~/.vim.d/templates/make.sh.tpl
+
 nnoremap <c-j> /<+.\{-1,}+><cr>c/+>/e<cr>
 inoremap <c-j> <ESC>/<+.\{-1,}+><cr>c/+>/e<cr>
 
