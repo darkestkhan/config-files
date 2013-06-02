@@ -10,6 +10,9 @@ set gfn=monospace
 set gfw=monospace
 set sh=/bin/bash
 
+set guioptions-=T " remove toolbar
+set guioptions-=r " remove right-hand scroll bar
+
 syntax on
 
 imap <c-space> <c-n>
