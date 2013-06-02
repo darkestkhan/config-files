@@ -78,9 +78,11 @@ function Enable_Colors ()
 function Export_Variables ()
 {
   export EDITOR='vim'
+  export VIMHOME="${HOME}/.vim.d"
   export TERM='xterm'
   export DEBEMAIL=darkestkhan@gmail.com
   export DEBFULLNAME="darkestkhan"
+  export LICENSEDIR=${HOME}/.LICENSES
   export XDG_DATA_HOME=${HOME}/.local/share
   export XDG_CONFIG_HOME=${HOME}/.config
   export XDG_CACHE_HOME=${HOME}/.cache

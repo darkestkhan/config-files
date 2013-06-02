@@ -16,3 +16,5 @@ ln -s ${PWD}/.fluxbox ${HOME}/.fluxbox
 ln -s ${PWD}/.config/bash ${XDG_CONFIG_HOME}/bash
 # Install scripts
 ln -s ${PWD}/bin ${HOME}/bin
+# Some helper files used by commands and/or scripts
+ln -s ${PWD}/.LICENSES ${HOME}/.LICENSES

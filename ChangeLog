@@ -1,0 +1,10 @@
+2013-06-02  darkestkhan  <darkestkhan@gmail.com>
+
+	* Add ChangeLog file [or loose mind].
+	* bash_aliases (Initialize_Library): New function initializing library
+	  project (directory structure, common files, etc).
+	* (Initialize_Project): As above but for projects.
+	* (Create_Symbolic_Link_To_PWD): New function.
+	* (Copy_License_Text): New function.
+	* .bashrc (Export_Variables): Export new envvars.
+	* make-install.sh: Add .LICENSES directory to configuration.

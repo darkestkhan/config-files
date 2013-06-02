@@ -34,3 +34,56 @@ alias dir2ogv='dir2ogv.sh'
 alias sapt='aptitude search'
 alias ssapt='apt-get source'
 alias vapt='aptitude versions'
+
+# More complicated ``aliases''
+# Initialize repository (directory structure, basic files, git init and commit).
+
+function Initialize_Library ( )
+{
+  git init
+  mkdir src lib obj tests tests/src tests/bin tests/obj
+  touch README COPYING AUTHORS INSTALL NEWS ChangeLog
+  cp ${VIMHOME}/templates/make.sh.tpl ./make.sh
+  git add *
+  git ci -m "Initial commit."
+}
+
+function Initialize_Project ( )
+{
+  git init
+  mkdir src obj tests tests/src tests/bin tests/obj
+  touch README COPYING AUTHORS INSTALL NEWS ChangeLog
+  git add *
+  git ci -m "Initial commit."
+}
+
+# Create symbolic link from foo to $PWD (use case that I'm doing very often)
+# Example Usage: Create_Symbolic_Link_To_PWD ${HOME}/.bashrc
+function Create_Symbolic_Link_To_PWD ( )
+{
+  if test $# -ne 1
+  then
+    echo "Error: Incorrect number of arguments and/or argument with separator."
+  else
+    ln -s $1 ${PWD}
+  fi
+}
+
+# Copy one of the licenses to $PWD (overwriting COPYING file)
+# Example Usage: Copy_License_Text GPL3
+function Copy_License_Text ( )
+{
+  if test $# -ne 1
+  then
+    echo "Error: Incorrect number of arguments."
+  else
+    case $1 in
+      "GPL3")
+        cp -f ${LICENSEDIR}/GPLv3 COPYING
+        ;;
+      *)
+        echo "Error: Unknown license. If not a typo add it to licenses."
+        ;;
+    esac
+  fi
+}
