@@ -1,3 +1,7 @@
+2013-06-03  darkestkhan  <darkestkhan@gmail.com>
+
+	* .bashrc (Export_Variables): Add email envvar.
+
 2013-06-02  darkestkhan  <darkestkhan@gmail.com>
 
 	* Add ChangeLog file [or loose mind].
