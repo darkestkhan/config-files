@@ -1,3 +1,10 @@
+2013-06-05  darkestkhan  <darkestkhan@gmail.com>
+
+	* .vimrc (ColorCol72, ColorCol80): New functions that change the
+	  overlength.
+	(ColorColumn72, ColorColumn80): New commands actually executing
+	above functions.
+
 2013-06-03  darkestkhan  <darkestkhan@gmail.com>
 
 	* .bashrc (Export_Variables): Add email envvar.

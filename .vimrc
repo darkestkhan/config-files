@@ -26,15 +26,30 @@ en
 
 set numberwidth=4
 
-if exists ('+colorcolumn')
-  set colorcolumn=81
-else
-  highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-  match OverLength /\%>80v.\+/
-endif
+command ColorColumn80 call ColorCol80 ()
+command ColorColumn72 call ColorCol72 ()
+function ColorCol80 ()
+  if exists ('+colorcolumn')
+    set colorcolumn=81
+  else
+    highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+    match OverLength /\%>80v.\+/
+  endif
+endfunction
+
+function ColorCol72 ()
+  if exists ('+colorcolumn')
+    set colorcolumn=73
+  else
+    highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+    match OverLength /\%>72v.\+/
+  endif
+endfunction
 
 autocmd BufNewFile * silent! 0r ~/.vim.d/templates/%:e.tpl
 autocmd BufNewFile make.sh silent! 0r ~/.vim.d/templates/make.sh.tpl
+
+autocmd BufWinEnter * ColorColumn80
 
 nnoremap <c-j> /<+.\{-1,}+><cr>c/+>/e<cr>
 inoremap <c-j> <ESC>/<+.\{-1,}+><cr>c/+>/e<cr>
