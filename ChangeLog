@@ -1,5 +1,15 @@
 2013-08-12  darkestkhan  <darkestkhan@gmail.com>
 
+	* .config/bash/bash_aliases (Refresh_GPR_Path, Add_To_GPR_Path):
+	New functions.
+
+	* .gpr_project_path: Delete file.
+
+	* .bashrc (Export_Variables): Change source file of GPR_PROJECT_PATH
+	environmental variable.
+
+	* .config/bash/gpr_project_path: New file containing GPR_PROJECT_PATH.
+
 	* .vimrc: Change color scheme and runtime path.
 	Don't save folds as loading them in different branch doesn't
 	work correctly.

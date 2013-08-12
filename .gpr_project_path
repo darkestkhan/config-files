@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-export GPR_PROJECT_PATH=:${HOME}/repo/vt100/:${HOME}/repo/lumen:${HOME}/repo/OpenGLAda/

@@ -63,7 +63,7 @@ function Create_Symbolic_Link_To_PWD ( )
 {
   if test $# -ne 1
   then
-    echo "Error: Incorrect number of arguments and/or argument with separator."
+    echo "Error: Incorrect number of arguments and/or argument with separator. Should be 1, was $#."
   else
     ln -s $1 ${PWD}
   fi
@@ -75,7 +75,7 @@ function Copy_License_Text ( )
 {
   if test $# -ne 1
   then
-    echo "Error: Incorrect number of arguments."
+    echo "Error: Incorrect number of arguments. Should be 1, was $#."
   else
     case $1 in
       "GPL3")
@@ -85,5 +85,32 @@ function Copy_License_Text ( )
         echo "Error: Unknown license. If not a typo add it to licenses."
         ;;
     esac
+  fi
+}
+
+# Refresh $GPR_PROJECT_PATH environmental variable - should be called after
+# Add_To_GPR_Path.
+function Refresh_GPR_Path ( )
+{
+  if test $# -ne 0
+  then
+    echo "Error: Incorrect number of arguments. Should be 0, was $#."
+  else
+    . ${HOME}/.config/bash/gpr_project_path
+  fi
+}
+
+# Add new path to file containing GPR_PROJECT_PATH. Call Refresh_GPR_Path
+# after calling this function to actually use new path. This is done to make it
+# quick to change GPR_PROJECT_PATH in a way such that it is preserved between
+# reboots.
+function Add_To_GPR_Path ( )
+{
+  if test $# -ne 1
+  then
+    echo "Error: Incorrect number of arguments. Should be 0, was $#."
+  else
+    echo "export GPR_PROJECT_PATH=$GPR_PROJECT_PATH:$1" \
+      >${HOME}/.config/bash/gpr_project_path
   fi
 }
