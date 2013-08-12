@@ -17,9 +17,9 @@ syntax on
 
 imap <c-space> <c-n>
 
-set runtimepath=~/.vim.d,/usr/share/vim/vim73,~/.vim.d/syntax
+set runtimepath=~/.vim.d,/usr/share/vim/vim74,~/.vim.d/syntax
 if has ("gui_running")
-  colorscheme darkblue
+  colorscheme desert
   set cursorline
   highlight CursorLine guibg=#003F3F
 en
@@ -55,9 +55,6 @@ nnoremap <c-j> /<+.\{-1,}+><cr>c/+>/e<cr>
 inoremap <c-j> <ESC>/<+.\{-1,}+><cr>c/+>/e<cr>
 
 set hls
-
-au BufWinLeave *.* silent mkview
-au BufWinEnter *.* silent loadview
 
 command SetGLSLFileType call SetGLSLFileType()
 function SetGLSLFileType()

@@ -20,9 +20,9 @@ if [ -f /usr/bin/colordiff ]; then
 fi
 
 # private aliases
-alias gcc='gcc-4.6 -std=c99 -Wall'
-alias g++='g++-4.6 -std=c++0x -Wall'
-alias gfortran='gfortran-4.5 -std=f95'
+alias gcc='gcc -Wall'
+alias g++='g++ -Wall'
+alias gfortran='gfortran -Wall'
 alias emacs='emacs23 -nw'
 alias python='python3.2'
 alias clisp='clisp -i ${HOME}/lib/std.cl'

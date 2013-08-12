@@ -1,3 +1,12 @@
+2013-08-12  darkestkhan  <darkestkhan@gmail.com>
+
+	* .vimrc: Change color scheme and runtime path.
+	Don't save folds as loading them in different branch doesn't
+	work correctly.
+
+	* .config/bash/bash_aliases: Remove standard flags and compiler
+	versions from aliases.
+
 2013-06-05  darkestkhan  <darkestkhan@gmail.com>
 
 	* .vimrc (ColorCol72, ColorCol80): New functions that change the
