@@ -1,3 +1,7 @@
+2013-09-30  darkestkhan  <darkestkhan@gmail.com>
+
+	* .config/bash/bash_aliases (Help): New function.
+
 2013-08-12  darkestkhan  <darkestkhan@gmail.com>
 
 	* .config/bash/bash_aliases (Refresh_GPR_Path, Add_To_GPR_Path):

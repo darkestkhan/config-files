@@ -36,8 +36,10 @@ alias ssapt='apt-get source'
 alias vapt='aptitude versions'
 
 # More complicated ``aliases''
-# Initialize repository (directory structure, basic files, git init and commit).
 
+Initialize_Library_Description="Initialize_Library\n\
+# Initialize repository (directory structure, basic files, git init and commit)\n\
+# for library type of project."
 function Initialize_Library ( )
 {
   git init
@@ -48,6 +50,8 @@ function Initialize_Library ( )
   git ci -m "Initial commit."
 }
 
+Initialize_Project_Description="Initialize_Project\n\
+# Initialize repository (directory structure, basic files, git init and commit)."
 function Initialize_Project ( )
 {
   git init
@@ -57,8 +61,9 @@ function Initialize_Project ( )
   git ci -m "Initial commit."
 }
 
-# Create symbolic link from foo to $PWD (use case that I'm doing very often)
-# Example Usage: Create_Symbolic_Link_To_PWD ${HOME}/.bashrc
+Create_Symbolic_Link_To_PWD_Description="Create_Symbolic_Link_To_PWD\n\
+# Create symbolic link from foo to \$PWD
+# Example Usage: Create_Symbolic_Link_To_PWD \${HOME}/.bashrc"
 function Create_Symbolic_Link_To_PWD ( )
 {
   if test $# -ne 1
@@ -69,8 +74,9 @@ function Create_Symbolic_Link_To_PWD ( )
   fi
 }
 
-# Copy one of the licenses to $PWD (overwriting COPYING file)
-# Example Usage: Copy_License_Text GPL3
+Copy_License_Text_Description="Copy_License_Text\n\
+# Copy one of the licenses to \$PWD (overwriting COPYING file)\n\
+# Example Usage: Copy_License_Text GPL3"
 function Copy_License_Text ( )
 {
   if test $# -ne 1
@@ -88,8 +94,9 @@ function Copy_License_Text ( )
   fi
 }
 
-# Refresh $GPR_PROJECT_PATH environmental variable - should be called after
-# Add_To_GPR_Path.
+Refresh_GPR_Path_Description="Refresh_GPR_Path\n\
+# Refresh \$GPR_PROJECT_PATH environmental variable - should be called after\n\
+# Add_To_GPR_Path."
 function Refresh_GPR_Path ( )
 {
   if test $# -ne 0
@@ -100,10 +107,11 @@ function Refresh_GPR_Path ( )
   fi
 }
 
-# Add new path to file containing GPR_PROJECT_PATH. Call Refresh_GPR_Path
-# after calling this function to actually use new path. This is done to make it
-# quick to change GPR_PROJECT_PATH in a way such that it is preserved between
-# reboots.
+Add_To_GPR_Path_Description="Add_To_GPR_Path\n\
+# Add new path to file containing GPR_PROJECT_PATH. Call Refresh_GPR_Path\n\
+# after calling this function to actually use new path. This is done to make it\n\
+# quick to change GPR_PROJECT_PATH in a way such that it is preserved between\n\
+# reboots."
 function Add_To_GPR_Path ( )
 {
   if test $# -ne 1
@@ -113,4 +121,16 @@ function Add_To_GPR_Path ( )
     echo "export GPR_PROJECT_PATH=$GPR_PROJECT_PATH:$1" \
       >${HOME}/.config/bash/gpr_project_path
   fi
+}
+
+Help_Description="Help\n\
+# Print available descriptions of all custom functions."
+function Help ( )
+{
+  echo -e "$Help_Description\n"
+  echo -e "$Initialize_Project_Description\n"
+  echo -e "$Create_Symbolic_Link_To_PWD_Description\n"
+  echo -e "$Copy_License_Text_Description\n"
+  echo -e "$Refresh_GPR_Path_Description\n"
+  echo -e "$Add_To_GPR_Path_Description\n"
 }
