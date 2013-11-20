@@ -19,9 +19,9 @@ imap <c-space> <c-n>
 
 set runtimepath=~/.vim.d,/usr/share/vim/vim74,~/.vim.d/syntax
 if has ("gui_running")
-  colorscheme desert
-  set cursorline
-  highlight CursorLine guibg=#003F3F
+  colorscheme elflord
+"  set cursorline
+"  highlight CursorLine guibg=#003F3F
 en
 
 set numberwidth=4
