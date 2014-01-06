@@ -76,7 +76,8 @@ function Create_Symbolic_Link_To_PWD ( )
 
 Copy_License_Text_Description="Copy_License_Text\n\
 # Copy one of the licenses to \$PWD (overwriting COPYING file)\n\
-# Example Usage: Copy_License_Text GPL3"
+# Example Usage: Copy_License_Text GPL3\n
+# Supported licenses: GPL3 LGPL3"
 function Copy_License_Text ( )
 {
   if test $# -ne 1
@@ -86,6 +87,9 @@ function Copy_License_Text ( )
     case $1 in
       "GPL3")
         cp -f ${LICENSEDIR}/GPLv3 COPYING
+        ;;
+      "LGPL3")
+        cp -f ${LICENSEDIR}/LGPLv3 COPYING
         ;;
       *)
         echo "Error: Unknown license. If not a typo add it to licenses."
