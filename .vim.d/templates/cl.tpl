@@ -2,7 +2,7 @@
 ;; EMAIL: <darkestkhan@gmail.com>                                           ;;
 ;; License: GNU GPLv3 or any later as published by Free Software Foundation ;;
 ;; (see README file)                                                        ;;
-;;                    Copyright © 2012 darkestkhan                          ;;
+;;                    Copyright © 2014 darkestkhan                          ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  This Program is Free Software: You can redistribute it and/or modify    ;;
 ;;  it under the terms of The GNU General Public License as published by    ;;

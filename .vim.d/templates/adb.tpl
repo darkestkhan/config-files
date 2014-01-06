@@ -8,7 +8,7 @@ pragma License (GPL);
 -- License: Modified GNU GPLv3 or any later as published by Free Software   --
 --  Foundation (GMPL).                                                      --
 --                                                                          --
---                    Copyright © 2013 darkestkhan                          --
+--                    Copyright © 2014 darkestkhan                          --
 ------------------------------------------------------------------------------
 --  This Program is Free Software: You can redistribute it and/or modify    --
 --  it under the terms of The GNU General Public License as published by    --
@@ -48,11 +48,11 @@ pragma License (GPL);
 --                                                                          --
 --    You should have received a copy of the GNU General Public License     --
 --   along with this program.  If not, see <http://www.gnu.org/licenses/>.  --
---                                                                          --   
--- As a special exception,  if other files  instantiate  generics from this --   
--- unit, or you link  this unit with other files  to produce an executable, --   
--- this  unit  does not  by itself cause  the resulting  executable  to  be --   
--- covered  by the  GNU  General  Public  License.  This exception does not --   
--- however invalidate  any other reasons why  the executable file  might be --   
--- covered by the  GNU Public License.                                      --   
+--                                                                          --
+-- As a special exception,  if other files  instantiate  generics from this --
+-- unit, or you link  this unit with other files  to produce an executable, --
+-- this  unit  does not  by itself cause  the resulting  executable  to  be --
+-- covered  by the  GNU  General  Public  License.  This exception does not --
+-- however invalidate  any other reasons why  the executable file  might be --
+-- covered by the  GNU Public License.                                      --
 ------------------------------------------------------------------------------
