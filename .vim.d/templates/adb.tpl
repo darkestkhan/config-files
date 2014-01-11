@@ -6,7 +6,7 @@ pragma License (GPL);
 -- License: GNU LGPLv3 or any later as published by Free Software           --
 --  Foundation (see COPYING file)                                           --
 -- License: Modified GNU GPLv3 or any later as published by Free Software   --
---  Foundation (GMPL).                                                      --
+--  Foundation (GMGPL, see COPYING file).                                    --
 --                                                                          --
 --                    Copyright © 2014 darkestkhan                          --
 ------------------------------------------------------------------------------
