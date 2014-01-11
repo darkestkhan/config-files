@@ -1,6 +1,7 @@
 project <+Project_Name+> is
 
   Version := "0.1";
+  Name    := <+Library_Name+>;
 
   for Languages use ("Ada");
   for Source_Dirs use ("src");
@@ -8,10 +9,11 @@ project <+Project_Name+> is
   for Exec_Dir use ".";
   for Source_Files use (<+Source_Files+>);
   for Main use (<+Main_File+>);
-  for Library_Name use "<+Library_Name+>";
+
+  for Library_Name use Name;
   for Library_Dir use "lib";
   for Library_Kind use "dynamic";
-  for Library_Version use Library_Name & ".so." & Version;
+  for Library_Version use "lib" & Name & ".so." & Version;
 
   package Compiler is
     CPU   := ("-m64", "-mssse3", "-march=native", "-fPIC");
