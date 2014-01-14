@@ -21,7 +21,7 @@ project <+Project_Name+> is
     WARN  := ("-Wall");
 
     Ada_Switches :=
-      ( "-gnat05", "-gnata", "-gnatE", "-gnato", "-fstack-check", "-gnatW8",
+      ( "-gnat05", "-gnata", "-gnato", "-fstack-check", "-gnatW8",
         "-gnateE", "-gnatU", "-gnatf", "-gnatj80"
       );
     for Default_Switches ("Ada") use Ada_Switches & CPU & OPT & WARN;
@@ -34,11 +34,10 @@ project <+Project_Name+> is
   end Compiler;
 
   package Linker is
-
+    -- When using Lumen add: "-lGLU", "-lGL", "-ldl", "-lX11"
+    -- When using Imago add: "-lIL", "-lILU", "-lILUT" on top of Lumen
+    -- When using Oto   add: "-lalut", "-lopenal"
     for Default_Switches ("Ada") use ();
-    -- When using Lumen
-    for Default_Switches ("Ada") use ("-lGLU", "-lGL", "-ldl", "-lX11");
-
   end Linker;
 
 end <+Project_Name+>;
