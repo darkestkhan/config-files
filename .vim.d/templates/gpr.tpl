@@ -19,7 +19,7 @@ project <+Project_Name+> is
     CPU   := ("-m64", "-mssse3", "-march=native", "-fPIC");
     OPT   := ("-O3", "-fomit-frame-pointer");
     WARN  := ("-Wall");
-    STYLE := ("-gnaty2aAbCdefhiklM80nOPrSux");
+    STYLE := ("-gnaty2aAbdefhiklM80nOprSux");
 
     Ada_Switches :=
       ( "-gnat05", "-gnata", "-gnato", "-fstack-check", "-gnatW8",
