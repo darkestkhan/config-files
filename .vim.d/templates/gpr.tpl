@@ -19,12 +19,13 @@ project <+Project_Name+> is
     CPU   := ("-m64", "-mssse3", "-march=native", "-fPIC");
     OPT   := ("-O3", "-fomit-frame-pointer");
     WARN  := ("-Wall");
+    STYLE := ("-gnaty2aAbCdefhiklM80nOPrSux");
 
     Ada_Switches :=
       ( "-gnat05", "-gnata", "-gnato", "-fstack-check", "-gnatW8",
         "-gnateE", "-gnatU", "-gnatf", "-gnatj80"
       );
-    for Default_Switches ("Ada") use Ada_Switches & CPU & OPT & WARN;
+    for Default_Switches ("Ada") use Ada_Switches & CPU & OPT & WARN & STYLE;
 
     C_Switches := ("-O3", "-C99", "-fstack-check");
     for Default_Switches ("C") use C_Switches & CPU & OPT & WARN;
