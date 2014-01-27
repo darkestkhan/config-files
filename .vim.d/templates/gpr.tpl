@@ -23,7 +23,7 @@ project <+Project_Name+> is
 
     Ada_Switches :=
       ( "-gnat05", "-gnata", "-gnato", "-fstack-check", "-gnatW8",
-        "-gnateE", "-gnatU", "-gnatf", "-gnatj80"
+        "-gnateE", "-gnatU", "-gnatf", "-gnatj80", "-gnatwa", "-gnatn"
       );
     for Default_Switches ("Ada") use Ada_Switches & CPU & OPT & WARN & STYLE;
 
