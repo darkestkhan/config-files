@@ -16,7 +16,7 @@ project <+Project_Name+> is
   for Library_Version use "lib" & Name & ".so." & Version;
 
   package Compiler is
-    CPU   := ("-m64", "-mssse3", "-march=native", "-fPIC");
+    CPU   := external ("CPU", "-m64 -mssse3 -march=native -fPIC");
     OPT   := ("-O3", "-fomit-frame-pointer");
     WARN  := ("-Wall");
     STYLE := ("-gnaty2aAbdefhiklM80nOprSux");
@@ -27,7 +27,10 @@ project <+Project_Name+> is
       );
     for Default_Switches ("Ada") use Ada_Switches & CPU & OPT & WARN & STYLE;
 
-    C_Switches := ("-O3", "-C99", "-fstack-check");
+    C_Switches := ("-O3", "-C99", "-fstack-check", "-fsanitize=undefined");
+    -- -fsanitize=undefine works only with gcc-4.9 and will add runtime check
+    -- for undefined behaviors - the moment such behavior is triggered
+    -- application will crash.
     for Default_Switches ("C") use C_Switches & CPU & OPT & WARN;
 
     Fortran_Switches := ();

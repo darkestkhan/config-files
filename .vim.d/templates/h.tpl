@@ -1,6 +1,6 @@
 /**************************************************************************/
 /* EMAIL: <darkestkhan@gmail.com>                                         */
-/* Copyright © 2014 darkestkhan                                           */
+/* Copyright © 2015 darkestkhan                                           */
 /* License: GNU GPLv3 or any later as published by Free Software          */
 /* Foundation (see README file)                                           */
 /**************************************************************************/
