@@ -88,6 +88,7 @@ function Export_Variables ()
   export XDG_CONFIG_HOME=${HOME}/.config
   export XDG_CACHE_HOME=${HOME}/.cache
   export XDG_RUNTIME_DIR=${HOME}/.runtime
+  export LANGUAGE=jbo:en_US:en
   . ${HOME}/.config/bash/gpr_project_path
 }
 
