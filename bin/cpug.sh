@@ -13,25 +13,24 @@ get_cpu_number () {
   return cpufreq-info | grep 'analyzing CPU' | wc -l
 }
 
+set_freq ()
+{
+  echo $1 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+  echo $1 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+  echo $1 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
+  echo $1 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
+}
+
 if [ $1 = 'max' ]; then
-  echo ${MAX} > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-  echo ${MAX} > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
-  echo ${MAX} > /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
-  echo ${MAX} > /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
+  set_freq ${MAX}
 fi
 
 if [ $1 = 'min' ]; then
-  echo ${MIN} > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-  echo ${MIN} > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
-  echo ${MIN} > /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
-  echo ${MIN} > /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
+  set_freq ${MIN}
 fi
 
 if [ $1 = 'half' ]; then
-  echo ${HALF} > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-  echo ${HALF} > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
-  echo ${HALF} > /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
-  echo ${HALF} > /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
+  set_freq ${HALF}
 fi
 
 if [ $1 = 'ondemand' ]; then
@@ -42,8 +41,5 @@ if [ $1 = 'ondemand' ]; then
 fi
 
 if [ $1 = 'above_min' ]; then
-  echo ${ABOVE_MIN} > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-  echo ${ABOVE_MIN} > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
-  echo ${ABOVE_MIN} > /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
-  echo ${ABOVE_MIN} > /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
+  set_freq ${ABOVE_MIN}
 fi
