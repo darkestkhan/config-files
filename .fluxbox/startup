@@ -5,7 +5,7 @@
 # You can set your favourite wallpaper here if you don't want
 # to do it from your style.
 #
-#fbsetbg -c -r ~/pictures
+fbsetbg -c -r ~/pictures
 #
 # This sets a black background
 
@@ -39,8 +39,6 @@
 # wmsmixer -w &
 # idesk &
 xrandr -s 0 &
-nm-applet &
-#-- commented out to see how pidgin will behave after reboot
 stjerm -tp right -tl \$ -p top -w 1280 -h 720 -bg 000000 -fg 009C00 &
 ibus-daemon -d &
 ./bin/keyboard.sh &
@@ -50,5 +48,3 @@ ibus-daemon -d &
 exec /usr/bin/fluxbox
 # or if you want to keep a log:
 # exec /usr/bin/fluxbox -log ~/.fluxbox/log
-fbsetbg -l
-
