@@ -1,3 +1,11 @@
 *~
 .fluxbox/apps
+.fluxbox/fbrun_history
+.fluxbox/init
 .config/bash/gpr_project_path
+.vim.d/*
+
+bin/passgen
+bin/stjerm
+bin/ghdl
+bin/debsecan_abbrev
