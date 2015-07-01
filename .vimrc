@@ -56,19 +56,7 @@ inoremap <c-j> <ESC>/<+.\{-1,}+><cr>c/+>/e<cr>
 
 set hls
 
-command SetGLSLFileType call SetGLSLFileType()
-function SetGLSLFileType()
-  for item in getline(1,10)
-    if item =~ "#version 400"
-      execute ':set filetype=glsl400'
-      break
-    endif
-    if item =~ "#version 330"
-      execute ':set filetype=glsl330'
-      break
-    endif
-  endfor
-endfunction
-au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl execute ':set filetype=glsl330'
+au BufNewFile,BufRead *.frag,*.vert,*.glsl execute ':set filetype=glsl330'
+au BufNewFile,BufRead *.fp,*.vp execute ':set filetype=glsl330'
 
 au BufNewFile,BufRead *.tpp execute ':set filetype=cpp'
