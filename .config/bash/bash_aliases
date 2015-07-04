@@ -129,14 +129,41 @@ function Add_To_GPR_Path ( )
   then
     echo "Error: Incorrect number of arguments. Should be 1, was $#."
   else
+# FIXME: Should use XDG_CONFIG_DIR instead of ${HOME}/.config
     echo "export GPR_PROJECT_PATH=$GPR_PROJECT_PATH:$1" \
       >${HOME}/.config/bash/gpr_project_path
+  fi
+}
+
+gprrebuild_Description="
+#       gprrebuild
+# Runs gprclean and gprbuild. If you don't specify argument then default project
+# file is used. Otherwise specified one will be."
+function gprrebuild ( )
+{
+  if test $# -gt 1
+  then
+    echo "Error: Incorrect number of arguments. Should be 0 or 1, was $#."
+  fi
+
+  if test $# -eq 0
+  then
+    gprclean
+    gprbuild
+  else
+    if test $# -eq 1
+    then
+      gprclean "$1"
+      gprbuild "$1"
+    fi
   fi
 }
 
 Help_Description="
 #       Help
 # Print available descriptions of all custom functions."
+# TODO: Make it possible to only list custom functions.
+# TODO: Make it possible to print description of only particular function.
 function Help ( )
 {
   echo -e "$Help_Description\n"
@@ -145,4 +172,5 @@ function Help ( )
   echo -e "$Copy_License_Text_Description\n"
   echo -e "$Refresh_GPR_Path_Description\n"
   echo -e "$Add_To_GPR_Path_Description\n"
+  echo -e "$gprrebuild_Description\n"
 }
