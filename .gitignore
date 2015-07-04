@@ -2,6 +2,7 @@
 .fluxbox/apps
 .fluxbox/fbrun_history
 .fluxbox/init
+.fluxbox/lastwallpaper
 .config/bash/gpr_project_path
 .vim.d/*
 

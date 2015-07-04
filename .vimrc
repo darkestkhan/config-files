@@ -6,6 +6,15 @@ set noautochdir
 set expandtab shiftwidth=2 tabstop=2
 "set nu
 
+command SetTabWidth3 call SetTabWidth_3 ()
+command SetTabWidth2 call SetTabWidth_2 ()
+function SetTabWidth_3 ()
+  set expandtab shiftwidth=3 tabstop=3
+endfunction
+function SetTabWidth_2 ()
+  set expandtab shiftwidth=2 tabstop=2
+endfunction
+
 set gfn=monospace
 set gfw=monospace
 set sh=/bin/bash
