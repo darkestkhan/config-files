@@ -82,7 +82,7 @@ Copy_License_Text_Description="
 #       Copy_License_Text
 # Copy one of the licenses to \$PWD (overwriting COPYING file)
 # Example Usage: Copy_License_Text GPL3
-# Supported licenses: GPL3 LGPL3"
+# Supported licenses: GPL3 LGPL3 ISC"
 function Copy_License_Text ( )
 {
   if test $# -ne 1
@@ -95,6 +95,9 @@ function Copy_License_Text ( )
         ;;
       "LGPL3")
         cp -f ${LICENSEDIR}/LGPLv3 COPYING
+        ;;
+      "ISC")
+        cp -f ${LICENSEDIR}/ISC COPYING
         ;;
       *)
         echo "Error: Unknown license. If not a typo add it to licenses."
