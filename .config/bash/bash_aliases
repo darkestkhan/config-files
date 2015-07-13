@@ -156,7 +156,10 @@ function gprrebuild ( )
 }
 
 Help_Description="
-# Print available descriptions of all custom functions."
+# Print available descriptions of all custom functions.\n
+# if \"list\" is given as argument then lists all custom functions\n
+# if \"function_name\" is given as argument then prints that function's\n
+# description\n"
 function Help ( )
 {
   Help_Array=(
