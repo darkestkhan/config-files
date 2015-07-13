@@ -10,3 +10,4 @@ bin/passgen
 bin/stjerm
 bin/ghdl
 bin/debsecan_abbrev
+bin/*
