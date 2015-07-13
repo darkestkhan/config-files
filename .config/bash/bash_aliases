@@ -38,9 +38,8 @@ alias vapt='aptitude versions'
 # More complicated ``aliases''
 
 Initialize_Library_Description="
-#       Initialize_Library
-# Initialize repository (directory structure, basic files, git init and commit)\n\
-# for library type of project."
+# Initialize repository (directory structure, basic files, git init and\n
+# commit) for library type of project.\n"
 function Initialize_Library ( )
 {
   git init
@@ -52,8 +51,8 @@ function Initialize_Library ( )
 }
 
 Initialize_Project_Description="
-#       Initialize_Project
-# Initialize repository (directory structure, basic files, git init and commit)."
+# Initialize repository (directory structure, basic files, git init and\n
+# commit)\n"
 function Initialize_Project ( )
 {
   git init
@@ -64,9 +63,8 @@ function Initialize_Project ( )
 }
 
 Create_Symbolic_Link_To_PWD_Description="
-#       Create_Symbolic_Link_To_PWD
-# Create symbolic link from foo to \$PWD
-# Example Usage: Create_Symbolic_Link_To_PWD \${HOME}/.bashrc"
+# Create symbolic link from foo to \$PWD\n
+# Example Usage: Create_Symbolic_Link_To_PWD \${HOME}/.bashrc\n"
 function Create_Symbolic_Link_To_PWD ( )
 {
   if test $# -ne 1
@@ -79,10 +77,9 @@ separator. Should be 1, was $#."
 }
 
 Copy_License_Text_Description="
-#       Copy_License_Text
-# Copy one of the licenses to \$PWD (overwriting COPYING file)
-# Example Usage: Copy_License_Text GPL3
-# Supported licenses: GPL3 LGPL3 ISC"
+# Copy one of the licenses to \$PWD (overwriting COPYING file)\n
+# Example Usage: Copy_License_Text GPL3\n
+# Supported licenses: GPL3 LGPL3 ISC\n"
 function Copy_License_Text ( )
 {
   if test $# -ne 1
@@ -107,9 +104,8 @@ function Copy_License_Text ( )
 }
 
 Refresh_GPR_Path_Description="
-#       Refresh_GPR_Path
-# Refresh \$GPR_PROJECT_PATH environmental variable - should be called after
-# Add_To_GPR_Path."
+# Refresh \$GPR_PROJECT_PATH environmental variable - should be called after\n
+# Add_To_GPR_Path.\n"
 function Refresh_GPR_Path ( )
 {
   if test $# -ne 0
@@ -121,27 +117,24 @@ function Refresh_GPR_Path ( )
 }
 
 Add_To_GPR_Path_Description="
-#       Add_To_GPR_Path
-# Add new path to file containing GPR_PROJECT_PATH. Call Refresh_GPR_Path
-# after calling this function to actually use new path. This is done to make it
-# quick to change GPR_PROJECT_PATH in a way such that it is preserved between
-# reboots."
+# Add new path to file containing GPR_PROJECT_PATH. Call Refresh_GPR_Path\n
+# after calling this function to actually use new path. This is done to make\n
+# it quick to change GPR_PROJECT_PATH in a way such that it is preserved\n
+# between reboots.\n"
 function Add_To_GPR_Path ( )
 {
   if test $# -ne 1
   then
     echo "Error: Incorrect number of arguments. Should be 1, was $#."
   else
-# FIXME: Should use XDG_CONFIG_DIR instead of ${HOME}/.config
     echo "export GPR_PROJECT_PATH=$GPR_PROJECT_PATH:$1" \
-      >${HOME}/.config/bash/gpr_project_path
+      >${XDG_CONFIG_HOME}/bash/gpr_project_path
   fi
 }
 
 gprrebuild_Description="
-#       gprrebuild
-# Runs gprclean and gprbuild. If you don't specify argument then default project
-# file is used. Otherwise specified one will be."
+# Runs gprclean and gprbuild. If you don't specify argument then default\n
+# project file is used. Otherwise specified one will be.\n"
 function gprrebuild ( )
 {
   if test $# -gt 1
@@ -163,17 +156,52 @@ function gprrebuild ( )
 }
 
 Help_Description="
-#       Help
 # Print available descriptions of all custom functions."
-# TODO: Make it possible to only list custom functions.
-# TODO: Make it possible to print description of only particular function.
 function Help ( )
 {
-  echo -e "$Help_Description\n"
-  echo -e "$Initialize_Project_Description\n"
-  echo -e "$Create_Symbolic_Link_To_PWD_Description\n"
-  echo -e "$Copy_License_Text_Description\n"
-  echo -e "$Refresh_GPR_Path_Description\n"
-  echo -e "$Add_To_GPR_Path_Description\n"
-  echo -e "$gprrebuild_Description\n"
+  Help_Array=(
+      "Initialize_Library"          "$Initialize_Library_Description"
+      "Initialize_Project"          "$Initialize_Project_Description"
+      "Create_Symbolic_Link_To_PWD" "$Create_Symbolic_Link_To_PWD_Description"
+      "Copy_License_Text"           "$Copy_License_Text_Description"
+      "Refresh_GPR_Path"            "$Refresh_GPR_Path_Description"
+      "Add_To_GPR_Path"             "$Add_To_GPR_Path_Description"
+      "gprrebuild"                  "$gprrebuild_Description"
+      "Help"                        "$Help_Description"
+    )
+
+  if test $# -eq 0
+  then
+    for K in ${!Help_Array[*]}
+    do
+      echo -e ${Help_Array[$K]}
+    done
+  else
+    case $1 in
+      "list" )
+        K=0
+        while test $K -lt ${#Help_Array[*]}
+        do
+          echo -e ${Help_Array[$K]}
+          K=$((K+=2))
+        done
+        ;;
+      * )
+        K=0
+        while test $K -lt ${#Help_Array[*]}
+        do
+          if test $1 = ${Help_Array[$K]}
+          then
+            echo -e ${Help_Array[$K]}
+            K=$((K+=1))
+            echo -n -e ${Help_Array[$K]}
+            return 0
+          else
+            K=$((K+=2))
+          fi
+        done
+        echo -e "Unknown function: $1"
+        ;;
+    esac
+  fi
 }
