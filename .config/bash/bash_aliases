@@ -37,9 +37,6 @@ alias vapt='aptitude versions'
 
 # More complicated ``aliases''
 
-Initialize_Library_Description="
-# Initialize repository (directory structure, basic files, git init and\n
-# commit) for library type of project.\n"
 function Initialize_Library ( )
 {
   git init
@@ -50,9 +47,6 @@ function Initialize_Library ( )
   git ci -m "Initial commit."
 }
 
-Initialize_Project_Description="
-# Initialize repository (directory structure, basic files, git init and\n
-# commit)\n"
 function Initialize_Project ( )
 {
   git init
@@ -62,9 +56,6 @@ function Initialize_Project ( )
   git ci -m "Initial commit."
 }
 
-Create_Symbolic_Link_To_PWD_Description="
-# Create symbolic link from foo to \$PWD\n
-# Example Usage: Create_Symbolic_Link_To_PWD \${HOME}/.bashrc\n"
 function Create_Symbolic_Link_To_PWD ( )
 {
   if test $# -ne 1
@@ -76,10 +67,6 @@ separator. Should be 1, was $#."
   fi
 }
 
-Copy_License_Text_Description="
-# Copy one of the licenses to \$PWD (overwriting COPYING file)\n
-# Example Usage: Copy_License_Text GPL3\n
-# Supported licenses: GPL3 LGPL3 ISC\n"
 function Copy_License_Text ( )
 {
   if test $# -ne 1
@@ -103,9 +90,6 @@ function Copy_License_Text ( )
   fi
 }
 
-Refresh_GPR_Path_Description="
-# Refresh \$GPR_PROJECT_PATH environmental variable - should be called after\n
-# Add_To_GPR_Path.\n"
 function Refresh_GPR_Path ( )
 {
   if test $# -ne 0
@@ -116,11 +100,6 @@ function Refresh_GPR_Path ( )
   fi
 }
 
-Add_To_GPR_Path_Description="
-# Add new path to file containing GPR_PROJECT_PATH. Call Refresh_GPR_Path\n
-# after calling this function to actually use new path. This is done to make\n
-# it quick to change GPR_PROJECT_PATH in a way such that it is preserved\n
-# between reboots.\n"
 function Add_To_GPR_Path ( )
 {
   if test $# -ne 1
@@ -132,9 +111,6 @@ function Add_To_GPR_Path ( )
   fi
 }
 
-gprrebuild_Description="
-# Runs gprclean and gprbuild. If you don't specify argument then default\n
-# project file is used. Otherwise specified one will be.\n"
 function gprrebuild ( )
 {
   if test $# -gt 1
@@ -155,13 +131,45 @@ function gprrebuild ( )
   fi
 }
 
-Help_Description="
+function Help ( )
+{
+  Initialize_Library_Description="
+# Initialize repository (directory structure, basic files, git init and\n
+# commit) for library type of project.\n"
+
+  Initialize_Project_Description="
+# Initialize repository (directory structure, basic files, git init and\n
+# commit)\n"
+
+  Create_Symbolic_Link_To_PWD_Description="
+# Create symbolic link from foo to \$PWD\n
+# Example Usage: Create_Symbolic_Link_To_PWD \${HOME}/.bashrc\n"
+
+  Copy_License_Text_Description="
+# Copy one of the licenses to \$PWD (overwriting COPYING file)\n
+# Example Usage: Copy_License_Text GPL3\n
+# Supported licenses: GPL3 LGPL3 ISC\n"
+
+  Refresh_GPR_Path_Description="
+# Refresh \$GPR_PROJECT_PATH environmental variable - should be called after\n
+# Add_To_GPR_Path.\n"
+
+  Add_To_GPR_Path_Description="
+# Add new path to file containing GPR_PROJECT_PATH. Call Refresh_GPR_Path\n
+# after calling this function to actually use new path. This is done to make\n
+# it quick to change GPR_PROJECT_PATH in a way such that it is preserved\n
+# between reboots.\n"
+
+  gprrebuild_Description="
+# Runs gprclean and gprbuild. If you don't specify argument then default\n
+# project file is used. Otherwise specified one will be.\n"
+
+  Help_Description="
 # Print available descriptions of all custom functions.\n
 # if \"list\" is given as argument then lists all custom functions\n
 # if \"function_name\" is given as argument then prints that function's\n
 # description\n"
-function Help ( )
-{
+
   Help_Array=(
       "Initialize_Library"          "$Initialize_Library_Description"
       "Initialize_Project"          "$Initialize_Project_Description"
