@@ -131,6 +131,11 @@ function gprrebuild ( )
   fi
 }
 
+function Reload_Aliases ( )
+{
+  . ${XDG_CONFIG_HOME}/bash/bash_aliases
+}
+
 function Help ( )
 {
   Initialize_Library_Description="
@@ -164,6 +169,9 @@ function Help ( )
 # Runs gprclean and gprbuild. If you don't specify argument then default\n
 # project file is used. Otherwise specified one will be.\n"
 
+  Reload_Aliases_Description="
+# Reloads bash_aliases\n"
+
   Help_Description="
 # Print available descriptions of all custom functions.\n
 # if \"list\" is given as argument then lists all custom functions\n
@@ -178,6 +186,7 @@ function Help ( )
       "Refresh_GPR_Path"            "$Refresh_GPR_Path_Description"
       "Add_To_GPR_Path"             "$Add_To_GPR_Path_Description"
       "gprrebuild"                  "$gprrebuild_Description"
+      "Reload_Aliases"              "$Reload_Aliases_Description"
       "Help"                        "$Help_Description"
     )
 
