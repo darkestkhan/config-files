@@ -30,7 +30,7 @@ if has ("gui_running")
   colorscheme elflord
 "  set cursorline
 "  highlight CursorLine guibg=#003F3F
-en
+endif
 
 set numberwidth=4
 
