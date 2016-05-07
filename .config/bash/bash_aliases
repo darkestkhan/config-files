@@ -23,7 +23,6 @@ fi
 alias gcc='gcc -Wall'
 alias g++='g++ -Wall'
 alias gfortran='gfortran -Wall'
-alias emacs='emacs -nw'
 alias python='python3'
 alias clisp='clisp -i ${HOME}/lib/std.cl'
 alias ghostscript='ghostscript -dSAFER'
