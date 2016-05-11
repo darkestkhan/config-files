@@ -28,6 +28,7 @@ alias clisp='clisp -i ${HOME}/lib/std.cl'
 alias ghostscript='ghostscript -dSAFER'
 alias gs='gs -dSAFER'
 alias dir2ogv='dir2ogv.sh'
+alias femacs='emacs -fs'
 
 # aptitude aliases
 alias sapt='aptitude search'
