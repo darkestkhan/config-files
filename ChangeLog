@@ -1,3 +1,7 @@
+2017-03-14  darkestkhan  <darkestkhan@gmail.com>
+
+	* .emacs: Expand the configuration of emacs.
+
 2013-10-31  darkestkhan  <darkestkhan@gmail.com>
 
 	* .vim.d/templates/make.sh.tpl: Improve file template (add clean procedure).

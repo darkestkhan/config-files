@@ -1,60 +1,227 @@
+8
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ada-indent 2)
+ '(ada-indent-record-rel-type 0)
+ '(auto-insert-mode t)
  '(column-number-mode t)
  '(display-battery-mode t)
  '(display-time-24hr-format t)
- '(size-indication-mode t))
+ '(display-time-mode t)
+ '(package-selected-packages
+   (quote
+    (org oauth2 num3-mode multishell ggtags math-symbol-lists chess flylisp f90-interface-browser diff-hl async djvu csv-mode bug-hunter realgud debbugs caps-lock diffview ack ace-window ada-ref-man)))
+ '(size-indication-mode t)
+ '(timeclock-mode-line-display t))
+
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
+
+;; Sane colors. Matrix colors are just much better.
+(add-to-list 'default-frame-alist '(foreground-color . "green"))
+(add-to-list 'default-frame-alist '(background-color . "black"))
+
+(setq gdb-many-windows t)
+(setq-default show-trailing-whitespace t)
+(setq-default indicate-empty-lines t)
+(setq-default inhibit-startup-message t)
+
 (setq c-basic-offset 2)
 
-(defun my-make-CR-do-indent ()
-  (define-key c-mode-base-map "\C-m" 'c-context-line-break))
-
-(add-hook 'c-initialization-hook 'my-make-CR-do-indent)
-
 (global-font-lock-mode t)
-(transient-mark-mode t)
 
-;; in order for making emacs scrolling down one line at a time
-;; it works in most cases, but in some modes it "jumpes"
-;; <begin one line scrolling>
-;; (setq truncate-lines t)
+(defun toggle-truncate-line ()
+  "toggle in current buffer"
+  (interactive)
+  (save-excursion
+    (set-variable 'truncate-lines (not truncate-lines))
+    (redraw-display)))
 
-;; (defun point-of-beginning-of-bottom-line ()
-;;   (save-excursion
-;;     (move-to-window-line -1)
-;;     (point)))
+(defun next-tag ()
+  (interactive)
+  (find-tag "" t))
 
-;; (defun point-of-beginning-of-line ()
-;;   (save-excursion
-;;     (beginning-of-line)
-;;     (point)))
+(defun previous-tag ()
+  (interactive)
+  (find-tag "" '-))
 
-;; (defun next-one-line () (interactive)
-;;   (if (= (point-of-beginning-of-bottom-line) (point-of-beginning-of-line))
-;;       (progn (scroll-up 1)
-;;              (next-line 1))
-;;     (next-line 1)))
+(defun copy-rectangle-as-kill (start end)
+  (interactive "r")
+  (setq killed-rectangle (extract-rectangle start end)))
 
-;; (defun point-of-beginning-of-top-line ()
-;;   (save-excursion
-;;     (move-to-window-line 0)
-;;     (point)))
+(defun clearline ()
+  "del all chars on current line"
+  (interactive)
+  (let (beg end)
+    (beginning-of-line)
+    (setq beg (point))
+    (end-of-line)
+    (setq end (point))
+    (kill-region beg end)))
 
-;; (defun previous-one-line () (interactive)
-;;   (if (= (point-of-beginning-of-top-line) (point-of-beginning-of-line))
-;;       (progn (scroll-down 1)
-;;              (previous-line 1))
-;;     (previous-line 1)))
+(defun scroll-in-place ()
+  (interactive)
+  (scroll-down-command -1))
 
-;; (global-set-key (kbd "<down>") 'next-one-line)
-;; (global-set-key (kbd "<up>") 'previous-one-line)
-;; <end one line scrolling>
+(defun scroll-down-in-place ()
+  (interactive)
+  (scroll-down-command 1))
+
+;; Some more standardized shortcuts I got fond of.
+(global-set-key (kbd "<f1>") 'delete-trailing-whitespace)
+(global-set-key (kbd "<f2>") 'undo)
+(global-set-key (kbd "<f4>") 'find-file)
+(global-set-key (kbd "<f5>") 'isearch-forward-regexp)
+(global-set-key (kbd "<S-f5>") 'isearch-backward-regexp)
+(global-set-key (kbd "<C-f5>") 'replace-regexp)
+(global-set-key (kbd "<M-f5>") 'query-replace-regexp)
+(global-set-key (kbd "<f6>") 'tags-search)
+(global-set-key (kbd "<C-f6>") 'next-tag)
+(global-set-key (kbd "<M-f6>") 'previous-tag)
+(global-set-key (kbd "<f7>") 'clearline)
+(global-set-key (kbd "<S-f7>") 'toggle-truncate-line)
+(global-set-key (kbd "<C-f7>") 'goto-line)
+(global-set-key (kbd "<M-f7>") 'delete-matching-lines)
+(global-set-key (kbd "<f8>") 'kill-this-buffer)
+(global-set-key (kbd "<f9>") 'kill-region)
+(global-set-key (kbd "<S-f9>") 'kill-rectangle)
+(global-set-key (kbd "<C-f9>") 'open-rectangle)
+(global-set-key (kbd "<M-f9>") 'string-rectangle)
+(global-set-key (kbd "<S-f10>") 'copy-rectangle-as-kill)
+(global-set-key (kbd "<S-f11>") 'yank-rectangle)
+(global-set-key (kbd "<C-f11>") 'compile)
+(global-set-key (kbd "<M-f11>") 'acompile)
+
+(global-set-key (kbd "<S-up>") 'scroll-in-place)
+(global-set-key (kbd "<S-down>") 'scroll-down-in-place)
+
+;; Hate that bell sound at start/end of the buffer.
+(setq visible-bell 1)
+
+;; Hate the toolbar - takes too much of screen estate.
+(tool-bar-mode -1)
+
+;; One hook that works. Still at least one thing.
+;; Want no stinking trailing whitespace. Would also love to bombard
+;; from orbit with asteroids all the tabs, alas at least this much
+;; can be done easily. For now.
+(add-hook 'c-mode-common-hook
+  (lambda()
+    (add-hook 'write-contents-functions
+      (lambda()
+        (save-excursion
+          (delete-trailing-whitespace)))
+      nil t)))
+
+(setq ada-skel-initial-string
+      (concat
+       "------------------------------------------------------------------------------\n"
+       "-- EMAIL: <darkestkhan@gmail.com>                                           --\n"
+       "-- License: ISC License (see COPYING file)                                  --\n"
+       "--                                                                          --\n"
+       "--                    Copyright © 2017 darkestkhan                          --\n"
+       "------------------------------------------------------------------------------\n"
+       "-- Permission to use, copy, modify, and/or distribute this software for any --\n"
+       "-- purpose with or without fee is hereby granted, provided that the above   --\n"
+       "-- copyright notice and this permission notice appear in all copies.        --\n"
+       "--                                                                          --\n"
+       "-- The software is provided \"as is\" and the author disclaims all warranties --\n"
+       "-- with regard to this software including all implied warranties of         --\n"
+       "-- merchantability and fitness. In no event shall the author be liable for  --\n"
+       "-- any special, direct, indirect, or consequential damages or any damages   --\n"
+       "-- whatsoever resulting from loss of use, data or profits, whether in an    --\n"
+       "-- action of contract, negligence or other tortious action, arising out of  --\n"
+       "-- or in connection with the use or performance of this software.           --\n"
+       "------------------------------------------------------------------------------\n"
+       ))
+
+(setq gpr-skel-initial-string
+      (concat
+       "project <+Project_Name+> is\n"
+       "\n"
+       "  Version := \"0.1\";\n"
+       "  Name    := <+Library_Name+>;\n"
+       "\n"
+       "  for Languages use (\"Ada\");\n"
+       "  for Source_Dirs use (\"src\");\n"
+       "  for Object_Dir use \"obj\";\n"
+       "  for Exec_Dir use \".\";\n"
+       "  for Source_Files use (<+Source_Files+>);\n"
+       "  for Main use (<+Main_File+>);\n"
+       "\n"
+       "  for Library_Name use Name;\n"
+       "  for Library_Dir use \"lib\";\n"
+       "  for Library_Kind use \"dynamic\";\n"
+       "  for Library_Version use \"lib\" & Name & \".so.\" & Version;\n"
+       "\n"
+       "  package Compiler is\n"
+       "    CPU   := external (\"CPU\", \"-m64 -mssse3 -march=native -fPIC\");\n"
+       "    OPT   := (\"-O3\", \"-fomit-frame-pointer\");\n"
+       "    WARN  := (\"-Wall\");\n"
+       "    STYLE := (\"-gnaty2aAbdefhiklM80nOprSux\");\n"
+       "\n"
+       "    Ada_Switches :=\n"
+       "      ( \"-gnat05\", \"-gnata\", \"-gnato\", \"-fstack-check\", \"-gnatW8\",\n"
+       "        \"-gnateE\", \"-gnatU\", \"-gnatf\", \"-gnatj80\", \"-gnatwa\", \"-gnatn\"\n"
+       "      );\n"
+       "    for Default_Switches (\"Ada\") use Ada_Switches & CPU & OPT & WARN & STYLE;\n"
+       "\n"
+       "    C_Switches := (\"-O3\", \"-C99\", \"-fstack-check\", \"-fsanitize=undefined\");\n"
+       "    -- -fsanitize=undefine works only with gcc-4.9 and will add runtime check\n"
+       "    -- for undefined behaviors - the moment such behavior is triggered\n"
+       "    -- application will crash.\n"
+       "    for Default_Switches (\"C\") use C_Switches & CPU & OPT & WARN;\n"
+       "\n"
+       "    Fortran_Switches := ();\n"
+       "    for Default_Switches (\"Fortran\") use Fortran_Switches & CPU & OPT & WARN;\n"
+       "  end Compiler;\n"
+       "\n"
+       "  package Linker is\n"
+       "    -- When using Lumen add: \"-lGLU\", \"-lGL\", \"-ldl\", \"-lX11\"\n"
+       "    -- When using Imago add: \"-lIL\", \"-lILU\", \"-lILUT\" on top of Lumen\n"
+       "    -- When using Oto   add: \"-lalut\", \"-lopenal\"\n"
+       "    for Default_Switches (\"Ada\") use ();\n"
+       "  end Linker;\n"
+       "\n"
+       "end <+Project_Name+>;\n"
+       ))
+
+(load-file "~/.emacs.d/private_vars.el")
+
+;; #### ###   ###
+;; #    #  # #   #
+;; #### ###  #
+;; #    # #  #   #
+;; #### #  #  ###
+(require 'erc)
+;; Auto
+
+(defun dark-erc ()
+  (interactive)
+  (setq erc-autojoin-channels-alist
+	'(("freenode.net" . "#ada")))
+  (erc :server "irc.freenode.net" :full-name "darkestkhan"
+       :port 6667 :nick "darkestkhan" :password erc-passwd))
+
+;; #####  ###  ####   ###
+;;   #   #   # #   # #   #
+;;   #   #   # #   # #   #
+;;   #   #   # #   # #   #
+;;   #    ###  ####   ###
+
+;; GPR_PROJECT_PATH management
+;; getenv from file
+;; append/prepend value to file when adding
