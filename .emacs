@@ -1,4 +1,4 @@
-8
+
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
@@ -132,7 +132,7 @@
        "-- EMAIL: <darkestkhan@gmail.com>                                           --\n"
        "-- License: ISC License (see COPYING file)                                  --\n"
        "--                                                                          --\n"
-       "--                    Copyright © 2017 darkestkhan                          --\n"
+       "--                    Copyright Â© 2017 darkestkhan                          --\n"
        "------------------------------------------------------------------------------\n"
        "-- Permission to use, copy, modify, and/or distribute this software for any --\n"
        "-- purpose with or without fee is hereby granted, provided that the above   --\n"
