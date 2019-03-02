@@ -12,6 +12,7 @@
  ;; If there is more than one, they won't work right.
  '(ada-indent 2)
  '(ada-indent-record-rel-type 0)
+ '(ada-indent-when 2)
  '(auto-insert-mode t)
  '(column-number-mode t)
  '(display-battery-mode t)
@@ -19,9 +20,11 @@
  '(display-time-mode t)
  '(package-selected-packages
    (quote
-    (org oauth2 num3-mode multishell ggtags math-symbol-lists chess flylisp f90-interface-browser diff-hl async djvu csv-mode bug-hunter realgud debbugs caps-lock diffview ack ace-window ada-ref-man)))
+    (ada-mode org oauth2 num3-mode multishell ggtags math-symbol-lists chess flylisp f90-interface-browser diff-hl async djvu csv-mode bug-hunter realgud debbugs caps-lock diffview ack ace-window ada-ref-man)))
  '(size-indication-mode t)
  '(timeclock-mode-line-display t))
+
+(setq-default indent-tabs-mode nil)
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -34,6 +37,7 @@
 (add-to-list 'default-frame-alist '(foreground-color . "green"))
 (add-to-list 'default-frame-alist '(background-color . "black"))
 
+(set-buffer-file-coding-system 'utf-8-unix)
 (setq gdb-many-windows t)
 (setq-default show-trailing-whitespace t)
 (setq-default indicate-empty-lines t)
@@ -126,13 +130,18 @@
           (delete-trailing-whitespace)))
       nil t)))
 
+(defun set-coding-system ()
+  (setq buffer-file-coding-system 'utf-8-unix))
+
+(add-hook 'find-file-hook 'set-coding-system)
+
 (setq ada-skel-initial-string
       (concat
        "------------------------------------------------------------------------------\n"
        "-- EMAIL: <darkestkhan@gmail.com>                                           --\n"
        "-- License: ISC License (see COPYING file)                                  --\n"
        "--                                                                          --\n"
-       "--                    Copyright © 2017 darkestkhan                          --\n"
+       "--                    Copyright (C) 2019 darkestkhan                        --\n"
        "------------------------------------------------------------------------------\n"
        "-- Permission to use, copy, modify, and/or distribute this software for any --\n"
        "-- purpose with or without fee is hereby granted, provided that the above   --\n"
@@ -168,10 +177,10 @@
        "  for Library_Version use \"lib\" & Name & \".so.\" & Version;\n"
        "\n"
        "  package Compiler is\n"
-       "    CPU   := external (\"CPU\", \"-m64 -mssse3 -march=native -fPIC\");\n"
+       "    CPU   := external (\"CPU\", \"-m64\");\n"
        "    OPT   := (\"-O3\", \"-fomit-frame-pointer\");\n"
        "    WARN  := (\"-Wall\");\n"
-       "    STYLE := (\"-gnaty2aAbdefhiklM80nOprSux\");\n"
+       "    STYLE := (\"-gnaty2aAbdefhiklM100nOprSux\");\n"
        "\n"
        "    Ada_Switches :=\n"
        "      ( \"-gnat05\", \"-gnata\", \"-gnato\", \"-fstack-check\", \"-gnatW8\",\n"
@@ -180,7 +189,7 @@
        "    for Default_Switches (\"Ada\") use Ada_Switches & CPU & OPT & WARN & STYLE;\n"
        "\n"
        "    C_Switches := (\"-O3\", \"-C99\", \"-fstack-check\", \"-fsanitize=undefined\");\n"
-       "    -- -fsanitize=undefine works only with gcc-4.9 and will add runtime check\n"
+       "    -- -fsanitize=undefine works only with gcc-4.9+ and will add runtime check\n"
        "    -- for undefined behaviors - the moment such behavior is triggered\n"
        "    -- application will crash.\n"
        "    for Default_Switches (\"C\") use C_Switches & CPU & OPT & WARN;\n"
@@ -211,8 +220,8 @@
 
 (defun dark-erc ()
   (interactive)
-  (setq erc-autojoin-channels-alist
-	'(("freenode.net" . "#ada")))
+  ;; (setq erc-autojoin-channels-alist
+  ;; 	'(("freenode.net" . ada)))
   (erc :server "irc.freenode.net" :full-name "darkestkhan"
        :port 6667 :nick "darkestkhan" :password erc-passwd))
 
@@ -225,3 +234,40 @@
 ;; GPR_PROJECT_PATH management
 ;; getenv from file
 ;; append/prepend value to file when adding
+
+;; (setq explicit-shell-file-name "c:/programs/git/git-bash.exe")
+
+;;  ###  ###   ###
+;; #   # #  # #
+;; #   # ###  #  ##
+;; #   # # #  #   #
+;;  ###  #  #  ###
+
+(require 'org)
+(setq org-agenda-files (list "~/org/todo.org" "~/org/learn.org" "~/org/health.org" "~/org/projects.org" "~/org/maint.org" "~/org/eve.org"))
+(setq org-log-done 'time)
+(setq org-log-done 'note)
+(define-key global-map "\C-ca" 'org-agenda)
+(define-key global-map "\C-co" (lambda ()
+				 (interactive)
+				 (find-file "~/org/organizer.org")))
+(setq org-default-notes-file "~/organizer.org")
+(define-key global-map "\C-cc" 'org-capture)
+;; Capture templates for: TODO tasks, Notes, appointments, phone calls, meetings, and org-protocol
+(setq org-capture-templates
+      (quote (("t" "todo" entry (file "~/org/refile.org")
+               "* TODO %?\n" :clock-in t :clock-resume t)
+              ("r" "respond" entry (file "~/org/refile.org")
+               "* TODO Respond to %:from on %:subject\nSCHEDULED: %t\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
+              ("n" "note" entry (file "~/org/refile.org")
+               "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
+              ("j" "Journal" entry (file+datetree "~/org/diary.org")
+               "* %?\n%U\n" :clock-in t :clock-resume t)
+              ("w" "org-protocol" entry (file "~/org/refile.org")
+               "* TODO Review %c\n%U\n" :immediate-finish t)
+              ("m" "Meeting" entry (file "~/org/refile.org")
+               "* MEETING with %? :MEETING:\n%U" :clock-in t :clock-resume t)
+              ("p" "Phone call" entry (file "~/git/org/refile.org")
+               "* PHONE %? :PHONE:\n%U" :clock-in t :clock-resume t)
+              ("h" "Habit" entry (file "~/org/refile.org")
+               "* TODO %?\nSCHEDULED: %(format-time-string \"%<<%Y-%m-%d %a .+1d/3d>>\")\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n"))))
